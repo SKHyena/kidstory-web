@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   BookOpen,
@@ -22,9 +23,13 @@ export default function HomePage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
         <nav className="container mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-[var(--color-primary)] rounded-xl flex items-center justify-center shadow-sm">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="KidStory"
+              width={36}
+              height={36}
+              className="w-9 h-9 rounded-xl shadow-sm"
+            />
             <span className="text-xl font-bold tracking-tight text-gray-900">KidStory</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
@@ -47,10 +52,17 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Background decorations */}
-        <div className="absolute top-20 left-[10%] w-64 h-64 bg-[var(--color-accent)]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-[5%] w-80 h-80 bg-[var(--color-primary)]/10 rounded-full blur-3xl" />
-        <div className="absolute top-40 right-[20%] w-48 h-48 bg-[var(--color-secondary)]/10 rounded-full blur-3xl" />
+        {/* Dreamy sky background from the app */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/images/dreamy-sky.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-top opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/25 via-[var(--background)]/65 to-[var(--background)]" />
+        </div>
 
         <div className="container mx-auto px-4 md:px-8 relative">
           <div className="max-w-3xl mx-auto text-center">
@@ -62,7 +74,7 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 text-balance leading-[1.1]">
               세상에 단 하나뿐인
               <br />
-              <span className="bg-gradient-to-r from-[var(--color-primary)] via-[#FF8E53] to-[var(--color-accent)] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[var(--color-secondary)] via-[#EE9F52] to-[var(--color-accent)] bg-clip-text text-transparent">
                 우리 아이 동화책
               </span>
             </h1>
@@ -95,48 +107,40 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Visual - Mockup cards */}
-          <div className="mt-16 md:mt-24 relative max-w-4xl mx-auto">
-            <div className="flex justify-center items-end gap-4 md:gap-6">
-              {/* Left card */}
-              <div className="animate-float-slow w-48 md:w-56 bg-white rounded-2xl shadow-xl p-3 -rotate-6 translate-y-4">
-                <div className="aspect-[3/4] bg-gradient-to-br from-[var(--color-soft-blue)] to-[var(--color-soft-green)] rounded-xl flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <div className="w-16 h-16 bg-white/80 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <Camera className="w-8 h-8 text-[var(--color-secondary)]" />
-                    </div>
-                    <p className="text-xs font-medium text-gray-500">아이 사진 등록</p>
-                  </div>
+          {/* Hero Visual - real storybook illustrations from the app */}
+          <div className="mt-20 md:mt-28 relative max-w-4xl mx-auto h-[360px] md:h-[460px]">
+            {/* Small scene card floating top-right */}
+            <div className="animate-float-delay absolute right-2 md:right-16 top-0 w-32 md:w-44 rotate-6 z-0">
+              <div className="bg-white rounded-2xl shadow-xl p-2">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+                  <Image src="/images/soft-hills.jpg" alt="동화 속 풍경" fill className="object-cover" />
                 </div>
-                <p className="text-xs font-semibold text-gray-700 mt-2 text-center">Step 1</p>
               </div>
+            </div>
 
-              {/* Center card */}
-              <div className="animate-float w-56 md:w-64 bg-white rounded-2xl shadow-2xl p-3 z-10">
-                <div className="aspect-[3/4] bg-gradient-to-br from-[var(--color-accent)]/30 to-[var(--color-primary)]/20 rounded-xl flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center p-4">
-                    <div className="w-20 h-20 bg-white/80 rounded-full mx-auto mb-3 flex items-center justify-center animate-shimmer bg-gradient-to-r from-white/80 via-[var(--color-accent)]/40 to-white/80">
-                      <Wand2 className="w-10 h-10 text-[var(--color-primary)]" />
-                    </div>
-                    <p className="text-sm font-bold text-gray-700">AI가 동화를 만드는 중...</p>
-                    <p className="text-xs text-gray-400 mt-1">우리 아이가 주인공!</p>
+            {/* Main storybook scene */}
+            <div className="animate-float absolute left-1/2 -translate-x-1/2 top-6 md:top-2 w-64 md:w-80 z-10">
+              <div className="bg-white rounded-[1.75rem] shadow-2xl p-3">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image src="/images/scene-tree.jpg" alt="우리 아이가 주인공인 동화 한 장면" fill className="object-cover" />
+                  <div className="absolute bottom-3 left-3">
+                    <span className="bg-white/90 backdrop-blur text-xs font-semibold text-gray-600 px-3 py-1 rounded-full shadow-sm">
+                      우리 아이 동화
+                    </span>
                   </div>
                 </div>
-                <p className="text-xs font-semibold text-gray-700 mt-2 text-center">Step 2</p>
               </div>
+            </div>
 
-              {/* Right card */}
-              <div className="animate-float-delay w-48 md:w-56 bg-white rounded-2xl shadow-xl p-3 rotate-6 translate-y-4">
-                <div className="aspect-[3/4] bg-gradient-to-br from-[var(--color-soft-pink)] to-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <div className="w-16 h-16 bg-white/80 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <BookMarked className="w-8 h-8 text-[var(--color-primary)]" />
-                    </div>
-                    <p className="text-xs font-medium text-gray-500">완성된 동화 읽기</p>
-                  </div>
-                </div>
-                <p className="text-xs font-semibold text-gray-700 mt-2 text-center">Step 3</p>
-              </div>
+            {/* Child character floating, overlapping the main card (transparent PNG) */}
+            <div className="animate-float-slow absolute left-2 md:left-24 bottom-0 w-44 md:w-64 z-20 drop-shadow-xl">
+              <Image
+                src="/images/child-reading.png"
+                alt="책 읽는 아이 일러스트"
+                width={400}
+                height={400}
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
@@ -178,11 +182,11 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Step 1 */}
             <div className="relative group">
-              <div className="bg-[var(--color-soft-blue)] rounded-3xl p-8 h-full transition-transform group-hover:-translate-y-1">
-                <div className="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
+              <div className="bg-[var(--color-soft-yellow)] rounded-3xl p-8 h-full transition-transform group-hover:-translate-y-1">
+                <div className="w-12 h-12 bg-[var(--color-accent)] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-accent)]/30">
                   <Camera className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-sm font-bold text-blue-500 mb-2">Step 01</div>
+                <div className="text-sm font-bold text-amber-500 mb-2">Step 01</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">아이 프로필 등록</h3>
                 <p className="text-gray-500 leading-relaxed">
                   아이의 사진, 이름, 나이, 관심사를 입력해주세요. AI가 아이의 특징을 학습합니다.
@@ -239,8 +243,8 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Feature 1 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-primary)]/20 hover:bg-[var(--color-soft-pink)]/50 transition-all">
-              <div className="w-12 h-12 bg-[var(--color-soft-pink)] rounded-xl flex items-center justify-center flex-shrink-0">
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-primary)]/20 hover:bg-[var(--color-soft-blue)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-blue)] rounded-xl flex items-center justify-center flex-shrink-0">
                 <Sparkles className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
               <div>
@@ -252,8 +256,8 @@ export default function HomePage() {
             </div>
 
             {/* Feature 2 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-secondary)]/20 hover:bg-[var(--color-soft-green)]/50 transition-all">
-              <div className="w-12 h-12 bg-[var(--color-soft-green)] rounded-xl flex items-center justify-center flex-shrink-0">
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-secondary)]/25 hover:bg-[var(--color-soft-pink)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-pink)] rounded-xl flex items-center justify-center flex-shrink-0">
                 <Wand2 className="w-6 h-6 text-[var(--color-secondary)]" />
               </div>
               <div>
@@ -265,9 +269,9 @@ export default function HomePage() {
             </div>
 
             {/* Feature 3 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-[var(--color-soft-blue)]/50 transition-all">
-              <div className="w-12 h-12 bg-[var(--color-soft-blue)] rounded-xl flex items-center justify-center flex-shrink-0">
-                <Volume2 className="w-6 h-6 text-blue-500" />
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-soft-yellow)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center flex-shrink-0">
+                <Volume2 className="w-6 h-6 text-amber-500" />
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">감정을 담은 음성 읽기</h3>
@@ -278,9 +282,9 @@ export default function HomePage() {
             </div>
 
             {/* Feature 4 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-soft-yellow)]/50 transition-all">
-              <div className="w-12 h-12 bg-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center flex-shrink-0">
-                <BookOpen className="w-6 h-6 text-amber-500" />
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-primary)]/20 hover:bg-[var(--color-soft-blue)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-blue)] rounded-xl flex items-center justify-center flex-shrink-0">
+                <BookOpen className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">5페이지 그림 동화</h3>
@@ -291,9 +295,9 @@ export default function HomePage() {
             </div>
 
             {/* Feature 5 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-purple-200 hover:bg-purple-50/50 transition-all">
-              <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <BookMarked className="w-6 h-6 text-purple-500" />
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-secondary)]/25 hover:bg-[var(--color-soft-pink)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-pink)] rounded-xl flex items-center justify-center flex-shrink-0">
+                <BookMarked className="w-6 h-6 text-[var(--color-secondary)]" />
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">동화 라이브러리</h3>
@@ -304,9 +308,9 @@ export default function HomePage() {
             </div>
 
             {/* Feature 6 */}
-            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-green-200 hover:bg-green-50/50 transition-all">
-              <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Shield className="w-6 h-6 text-green-500" />
+            <div className="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-soft-yellow)]/50 transition-all">
+              <div className="w-12 h-12 bg-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center flex-shrink-0">
+                <Shield className="w-6 h-6 text-amber-500" />
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">안전한 콘텐츠</h3>
@@ -335,35 +339,37 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
-                title: "용감한 우주 탐험가",
-                desc: "우주선을 타고 새로운 행성을 발견하는 모험",
+                title: "별빛 우주 탐험가",
+                desc: "밤하늘 별과 달을 지나 새로운 세계를 만나는 모험",
                 interest: "우주",
-                gradient: "from-indigo-100 to-blue-50",
-                iconColor: "text-indigo-500",
+                image: "/images/dreamy-sky.jpg",
               },
               {
                 title: "숲속 동물 친구들",
-                desc: "숲에서 만난 동물 친구들과의 따뜻한 우정 이야기",
-                interest: "동물",
-                gradient: "from-emerald-100 to-green-50",
-                iconColor: "text-emerald-500",
+                desc: "나무 아래에서 만난 친구들과의 따뜻한 우정 이야기",
+                interest: "자연",
+                image: "/images/scene-tree.jpg",
               },
               {
                 title: "마법의 성 대모험",
-                desc: "마법의 성에서 펼쳐지는 신비로운 판타지 여행",
-                interest: "공주",
-                gradient: "from-pink-100 to-rose-50",
-                iconColor: "text-pink-500",
+                desc: "달빛이 비추는 마법의 성에서 펼쳐지는 판타지 여행",
+                interest: "판타지",
+                image: "/images/scene-cover.jpg",
               },
             ].map((story) => (
               <div
                 key={story.title}
                 className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                <div className={`aspect-[4/3] bg-gradient-to-br ${story.gradient} flex items-center justify-center relative`}>
-                  <BookOpen className={`w-16 h-16 ${story.iconColor} opacity-30`} />
+                <div className="aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={story.image}
+                    alt={story.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                   <div className="absolute bottom-3 left-3">
-                    <span className="bg-white/90 text-xs font-semibold text-gray-600 px-3 py-1 rounded-full">
+                    <span className="bg-white/90 backdrop-blur text-xs font-semibold text-gray-600 px-3 py-1 rounded-full shadow-sm">
                       #{story.interest}
                     </span>
                   </div>
@@ -390,10 +396,16 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="relative bg-gray-900 rounded-[2rem] p-12 md:p-20 text-center overflow-hidden">
-            {/* Background glow */}
+          <div className="relative rounded-[2rem] p-12 md:p-20 text-center overflow-hidden">
+            {/* Dreamy sky background with dark overlay for readability */}
+            <Image
+              src="/images/dreamy-sky.jpg"
+              alt=""
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/75 to-gray-900/85" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--color-primary)]/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-[var(--color-secondary)]/10 rounded-full blur-[80px]" />
 
             <div className="relative">
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 text-balance">
@@ -432,9 +444,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-10">
             <div>
               <Link href="/" className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-4 h-4 text-white" />
-                </div>
+                <Image
+                  src="/images/logo.png"
+                  alt="KidStory"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-lg"
+                />
                 <span className="text-lg font-bold text-gray-900">KidStory</span>
               </Link>
               <p className="text-sm text-gray-400 leading-relaxed">
@@ -490,7 +506,7 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="/terms" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
                     이용약관
                   </Link>
                 </li>
@@ -499,7 +515,7 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-100 mt-10 pt-8 text-center">
-            <p className="text-sm text-gray-400">&copy; 2024 KidStory. All rights reserved.</p>
+            <p className="text-sm text-gray-400">&copy; 2026 KidStory. All rights reserved.</p>
           </div>
         </div>
       </footer>

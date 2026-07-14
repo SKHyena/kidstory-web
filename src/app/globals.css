@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FEFCF9;
-  --foreground: #1A1A2E;
+  /* 앱(kidstory-flutter) 톤: 크림 배경 + 틸 primary + 따뜻한 오렌지/골드 */
+  --background: #FBF6EC;
+  --foreground: #3F3A31;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #FF6B6B;
-  --color-primary-dark: #E55A5A;
-  --color-secondary: #4ECDC4;
-  --color-accent: #FFE66D;
+  --color-primary: #16938E;
+  --color-primary-dark: #0F726E;
+  --color-secondary: #F2915C;
+  --color-accent: #F5C147;
   --color-warm: #FFF5E6;
-  --color-soft-pink: #FFF0F0;
-  --color-soft-blue: #F0F4FF;
-  --color-soft-green: #F0FFF4;
-  --color-soft-yellow: #FFFBF0;
+  --color-soft-pink: #FBEDE4;
+  --color-soft-blue: #EAF4F3;
+  --color-soft-green: #EEF6EE;
+  --color-soft-yellow: #FDF7E8;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

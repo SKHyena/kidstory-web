@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "KidStory",
   description: "KidStory is a platform for kids to learn and grow",
   generator: "KidStory",
+  verification: {
+    other: {
+      "naver-site-verification": "28beb596098cf0a9d719917e7a0a978792c08722",
+    },
+  },
 };
 
 export default function RootLayout({
