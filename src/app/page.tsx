@@ -510,6 +510,11 @@ export default function HomePage() {
                     이용약관
                   </Link>
                 </li>
+                <li>
+                  <Link href="/account-deletion" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                    계정 및 데이터 삭제
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

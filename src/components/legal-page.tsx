@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 
 interface LegalPageProps {
   title: string;
-  /** 예: "2026년 7월 13일" */
-  effectiveDate: string;
+  /** 예: "2026년 7월 13일". 시행일 개념이 없는 안내 페이지에서는 생략한다. */
+  effectiveDate?: string;
   /** 예: "2026년 7월 13일" */
   updatedDate?: string;
-  /** 현재 페이지 라우트 ("/privacy" | "/terms") — 하단 크로스링크에서 활성 표시용 */
-  current: "/privacy" | "/terms";
+  /** 현재 페이지 라우트 — 하단 크로스링크에서 활성 표시용 */
+  current: "/privacy" | "/terms" | "/account-deletion";
   children: React.ReactNode;
 }
 
@@ -52,10 +52,14 @@ export function LegalPage({
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
             {title}
           </h1>
-          <p className="text-sm text-gray-400 mb-12">
-            시행일: {effectiveDate}
-            {updatedDate ? ` | 최종 수정일: ${updatedDate}` : ""}
-          </p>
+          {effectiveDate ? (
+            <p className="text-sm text-gray-400 mb-12">
+              시행일: {effectiveDate}
+              {updatedDate ? ` | 최종 수정일: ${updatedDate}` : ""}
+            </p>
+          ) : (
+            <div className="mb-12" />
+          )}
 
           <div className="space-y-10 text-gray-600 leading-relaxed text-[15px]">{children}</div>
 
@@ -80,6 +84,16 @@ export function LegalPage({
               }
             >
               개인정보처리방침
+            </Link>
+            <Link
+              href="/account-deletion"
+              className={
+                current === "/account-deletion"
+                  ? "font-semibold text-gray-900"
+                  : "text-gray-400 hover:text-gray-600 transition-colors"
+              }
+            >
+              계정 및 데이터 삭제
             </Link>
           </div>
         </div>

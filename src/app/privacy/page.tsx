@@ -9,13 +9,13 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="개인정보처리방침"
-      effectiveDate="[시행일: YYYY년 MM월 DD일]"
-      updatedDate="[최종 수정일: YYYY년 MM월 DD일]"
+      effectiveDate="2026년 7월 21일"
+      updatedDate="2026년 7월 21일"
       current="/privacy"
     >
       <section>
         <p>
-          [사업자명](이하 &quot;회사&quot;)은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를
+          에스케이에이치(SKH)(이하 &quot;회사&quot;)는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를
           보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이
           개인정보처리방침을 수립·공개합니다. 회사가 운영하는 AI 동화책 서비스 &quot;KidStory&quot;(이하
           &quot;서비스&quot;)는 만 14세 미만 아동을 대상으로 한 콘텐츠를 포함하므로, 아동의 개인정보 보호에
@@ -79,14 +79,11 @@ export default function PrivacyPage() {
           보유·이용 기간 내에서 개인정보를 처리·보유합니다.
         </p>
         <ul className="list-disc pl-6 mt-3 space-y-1">
-          <li>회원 정보 및 자녀 정보: 회원 탈퇴 시까지 (탈퇴 후 지체 없이 파기, 늦어도 [__]일 이내)</li>
+          <li>회원 정보 및 자녀 정보: 회원 탈퇴 시까지 (탈퇴 즉시 지체 없이 파기)</li>
           <li>자녀 사진 및 생성된 동화 데이터: 회원 탈퇴 또는 이용자의 자녀 프로필·동화 삭제 시까지</li>
           <li>서비스 이용 기록(접속 로그, IP 주소): 3개월 (통신비밀보호법)</li>
           <li>기타 관계 법령이 정한 기간이 있는 경우 해당 기간</li>
         </ul>
-        <p className="mt-3 text-sm text-gray-500">
-          ※ 보유 기간 및 파기 기한의 구체적 일수는 [내부 정책에 따라 확정하여 기재] 바랍니다.
-        </p>
       </section>
 
       <section>
@@ -128,7 +125,9 @@ export default function PrivacyPage() {
             <tbody className="text-gray-600">
               <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Amazon Web Services, Inc. (AWS)</td>
-                <td className="py-3">이미지·데이터 저장(S3) 및 클라우드 서버 인프라 운영</td>
+                <td className="py-3">
+                  이미지·데이터 저장(S3) 및 클라우드 서버 인프라 운영 (국내 서울 리전에 저장)
+                </td>
               </tr>
               <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Google LLC</td>
@@ -143,8 +142,8 @@ export default function PrivacyPage() {
                 <td className="py-3">카카오 소셜 로그인 인증</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-3 pr-4">[TTS 음성 서비스 제공업체]</td>
-                <td className="py-3">동화 음성 읽어주기(TTS) 음성 생성</td>
+                <td className="py-3 pr-4">Google LLC</td>
+                <td className="py-3">동화 음성 읽어주기(TTS) 음성 생성(Gemini API)</td>
               </tr>
             </tbody>
           </table>
@@ -163,14 +162,19 @@ export default function PrivacyPage() {
           이용자는 서비스 이용(소셜 로그인, AI 동화 생성 등)을 통해 아래 국외 이전에 동의한 것으로 봅니다.
         </p>
         <ul className="list-disc pl-6 mt-3 space-y-1">
-          <li>이전받는 자: AWS, Google LLC 등 본 방침 제6조에 기재된 국외 수탁자</li>
-          <li>이전 항목: 소셜 계정 식별자·이메일·닉네임, 자녀 프로필 정보 및 사진, 생성된 동화 데이터</li>
-          <li>이전 국가·일시·방법: 각 수탁자가 운영하는 국외 리전 서버, 서비스 이용 시점에 정보통신망을 통해 이전</li>
-          <li>이용 목적 및 보유 기간: 본 방침 제1조 및 제3조와 동일</li>
+          <li>이전받는 자: Google LLC</li>
+          <li>
+            이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, AI 동화 생성에 입력되는 자녀 프로필
+            정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터
+          </li>
+          <li>이전 국가: 미국</li>
+          <li>이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성) 시점에 정보통신망을 통해 전송</li>
+          <li>이전받는 자의 이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송</li>
+          <li>보유 기간: 본 방침 제3조와 동일</li>
         </ul>
-        <p className="mt-3 text-sm text-gray-500">
-          ※ 각 수탁자가 사용하는 실제 데이터센터 리전([예: AWS ap-northeast-2 등])을 확인하여 구체적으로
-          기재하시기 바랍니다.
+        <p className="mt-3">
+          한편 이용자의 사진·동화 등 저장 데이터가 보관되는 AWS S3 스토리지 및 서버 인프라는 국내(서울,
+          ap-northeast-2) 리전에 위치하므로 국외 이전에 해당하지 않습니다.
         </p>
       </section>
 
@@ -187,8 +191,8 @@ export default function PrivacyPage() {
           <li>처리정지 요구 및 동의 철회</li>
         </ul>
         <p className="mt-3">
-          권리 행사는 서비스 내 설정 메뉴, 또는 개인정보 보호책임자에게 서면·이메일([개인정보 보호책임자
-          이메일])로 요청하실 수 있으며, 회사는 이에 대해 지체 없이 조치합니다. 정보주체가 개인정보의
+          권리 행사는 서비스 내 설정 메뉴, 또는 개인정보 보호책임자에게 서면·이메일(skhyena728@gmail.com)로
+          요청하실 수 있으며, 회사는 이에 대해 지체 없이 조치합니다. 정보주체가 개인정보의
           오류에 대한 정정을 요청한 경우, 회사는 정정을 완료할 때까지 해당 개인정보를 이용·제공하지
           않습니다.
         </p>
@@ -235,10 +239,9 @@ export default function PrivacyPage() {
         <div className="mt-3 bg-gray-50 rounded-xl p-5">
           <p className="font-semibold text-gray-800 mb-2">개인정보 보호책임자</p>
           <ul className="space-y-1 text-sm">
-            <li>성명: [개인정보 보호책임자 성명]</li>
-            <li>직책: [직책]</li>
-            <li>연락처: [전화번호]</li>
-            <li>이메일: [개인정보 보호책임자 이메일]</li>
+            <li>성명: 김기손</li>
+            <li>소속: 에스케이에이치(SKH)</li>
+            <li>이메일: skhyena728@gmail.com</li>
           </ul>
         </div>
         <p className="mt-3">

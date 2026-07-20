@@ -9,13 +9,13 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="이용약관"
-      effectiveDate="[시행일: YYYY년 MM월 DD일]"
+      effectiveDate="2026년 7월 21일"
       current="/terms"
     >
       <section>
         <h2 className="text-lg font-bold text-gray-900 mb-3">제1조 (목적)</h2>
         <p>
-          이 약관은 [사업자명](이하 &quot;회사&quot;)이 제공하는 AI 동화책 서비스 &quot;KidStory&quot;(이하
+          이 약관은 에스케이에이치(SKH)(이하 &quot;회사&quot;)가 제공하는 AI 동화책 서비스 &quot;KidStory&quot;(이하
           &quot;서비스&quot;)의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 이용조건 및 절차
           등 기본적인 사항을 규정함을 목적으로 합니다.
         </p>
@@ -122,7 +122,7 @@ export default function TermsPage() {
 
       <section>
         <h2 className="text-lg font-bold text-gray-900 mb-3">부칙</h2>
-        <p>이 약관은 [시행일: YYYY년 MM월 DD일]부터 시행합니다.</p>
+        <p>이 약관은 2026년 7월 21일부터 시행합니다.</p>
       </section>
     </LegalPage>
   );
