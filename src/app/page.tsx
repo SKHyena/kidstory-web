@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { APP_STORE_URL, PLAY_STORE_URL, SUPPORT_MAILTO } from "@/lib/app-links";
 import {
   BookOpen,
   Sparkles,
@@ -9,7 +10,8 @@ import {
   BookMarked,
   Volume2,
   Shield,
-  Star,
+  Lock,
+  Trash2,
   ArrowRight,
   ChevronRight,
   Download,
@@ -43,9 +45,14 @@ export default function HomePage() {
               동화 미리보기
             </Link>
           </div>
-          <Button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full px-6 h-10 text-sm font-semibold shadow-sm">
-            <Download className="w-4 h-4 mr-1.5" />
-            앱 다운로드
+          <Button
+            className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full px-6 h-10 text-sm font-semibold shadow-sm"
+            asChild
+          >
+            <Link href="#download">
+              <Download className="w-4 h-4 mr-1.5" />
+              앱 다운로드
+            </Link>
           </Button>
         </nav>
       </header>
@@ -89,9 +96,12 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full h-14 px-8 text-base font-semibold shadow-lg shadow-[var(--color-primary)]/25"
+                asChild
               >
-                <Smartphone className="w-5 h-5 mr-2" />
-                무료로 시작하기
+                <Link href="#download">
+                  <Smartphone className="w-5 h-5 mr-2" />
+                  무료로 시작하기
+                </Link>
               </Button>
               <Button
                 size="lg"
@@ -146,31 +156,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-12 border-y border-gray-100 bg-white">
+      {/* Trust — 아이 사진을 맡기는 부모의 불안을 먼저 해소한다 */}
+      <section className="py-14 border-y border-gray-100 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[var(--color-accent)] text-[var(--color-accent)]" />
-              ))}
-              <span className="ml-2 text-sm font-semibold text-gray-700">4.9</span>
-              <span className="text-sm text-gray-400 ml-1">App Store 평점</span>
+          <p className="text-center text-sm font-semibold text-[var(--color-primary)] mb-8">
+            안심하고 맡기세요
+          </p>
+          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="flex flex-col items-center text-center gap-3">
+              <div className="w-11 h-11 bg-[var(--color-soft-blue)] rounded-xl flex items-center justify-center">
+                <Lock className="w-5 h-5 text-[var(--color-primary)]" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-[15px] mb-1">사진은 삽화 생성에만</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  아이 사진은 동화 삽화를 만드는 데만 쓰이고, 외부에 공개되지 않습니다.
+                </p>
+              </div>
             </div>
-            <div className="h-8 w-px bg-gray-200 hidden md:block" />
-            <div className="text-sm text-gray-500">
-              <span className="font-semibold text-gray-700">10,000+</span> 가족이 함께하고 있어요
+            <div className="flex flex-col items-center text-center gap-3">
+              <div className="w-11 h-11 bg-[var(--color-soft-green)] rounded-xl flex items-center justify-center">
+                <Shield className="w-5 h-5 text-[var(--color-secondary)]" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-[15px] mb-1">아동 안전 필터링</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  아이에게 적합한 내용만 생성되도록 안전 기준을 적용합니다.
+                </p>
+              </div>
             </div>
-            <div className="h-8 w-px bg-gray-200 hidden md:block" />
-            <div className="text-sm text-gray-500">
-              <span className="font-semibold text-gray-700">50,000+</span> 동화가 만들어졌어요
+            <div className="flex flex-col items-center text-center gap-3">
+              <div className="w-11 h-11 bg-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center">
+                <Trash2 className="w-5 h-5 text-amber-500" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-[15px] mb-1">언제든 삭제 가능</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  탈퇴하면 사진과 동화를 포함한 데이터가 지체 없이 파기됩니다.
+                </p>
+              </div>
             </div>
           </div>
+          <p className="text-center mt-8 text-sm text-gray-500">
+            자세한 내용은{" "}
+            <Link
+              href="/privacy"
+              className="font-semibold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-primary-dark)] transition-colors"
+            >
+              개인정보처리방침
+            </Link>
+            에서 확인하실 수 있어요.
+          </p>
         </div>
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 md:py-32">
+      <section id="how-it-works" className="py-24 md:py-32 scroll-mt-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">HOW IT WORKS</p>
@@ -232,7 +273,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-24 md:py-32 bg-white">
+      <section id="features" className="py-24 md:py-32 bg-white scroll-mt-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">FEATURES</p>
@@ -324,7 +365,7 @@ export default function HomePage() {
       </section>
 
       {/* Story Preview */}
-      <section id="stories" className="py-24 md:py-32">
+      <section id="stories" className="py-24 md:py-32 scroll-mt-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">STORIES</p>
@@ -332,29 +373,32 @@ export default function HomePage() {
               이런 동화가 만들어져요
             </h2>
             <p className="text-gray-500 mt-4 max-w-lg mx-auto">
-              아이의 관심사에 따라 모험, 판타지, 우정, 자연 등 다양한 주제의 동화가 생성됩니다.
+              아이의 관심사에 따라 음악, 공룡, 판타지 등 다양한 주제의 동화가 생성됩니다.
+              <br className="hidden sm:block" />
+              아래는 KidStory로 실제 만든 동화예요.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* KidStory로 실제 생성한 동화(공개 동의를 받은 샘플)의 제목·도입부·삽화 */}
             {[
               {
-                title: "별빛 우주 탐험가",
-                desc: "밤하늘 별과 달을 지나 새로운 세계를 만나는 모험",
-                interest: "우주",
-                image: "/images/dreamy-sky.jpg",
+                title: "예린이의 신나는 상상 여행!",
+                desc: "예린이는 음악을 정말 좋아했어요. 예쁜 피아노 앞에 앉으면, 손가락으로 통통통 신나는 멜로디를 만들었죠.",
+                interest: "음악",
+                image: "/images/samples/story-music.jpg",
               },
               {
-                title: "숲속 동물 친구들",
-                desc: "나무 아래에서 만난 친구들과의 따뜻한 우정 이야기",
-                interest: "자연",
-                image: "/images/scene-tree.jpg",
+                title: "예린이의 신나는 꿈동산",
+                desc: "커다란 티라노사우루스도, 귀여운 아기 강아지도 모두 예린이의 소중한 친구들이죠.",
+                interest: "공룡",
+                image: "/images/samples/story-dino.jpg",
               },
               {
-                title: "마법의 성 대모험",
-                desc: "달빛이 비추는 마법의 성에서 펼쳐지는 판타지 여행",
+                title: "예린이와 신데렐라 호랑이",
+                desc: "예린이는 신데렐라 이야기를 아주 좋아했어요. 그리고 용감한 호랑이도 정말 좋아했지요.",
                 interest: "판타지",
-                image: "/images/scene-cover.jpg",
+                image: "/images/samples/story-fairytale.jpg",
               },
             ].map((story) => (
               <div
@@ -379,7 +423,7 @@ export default function HomePage() {
                     {story.title}
                   </h3>
                   <p className="text-sm text-gray-500">{story.desc}</p>
-                  <div className="flex items-center gap-3 mt-3 text-xs text-gray-400">
+                  <div className="flex items-center gap-3 mt-3 text-xs text-gray-500">
                     <span>5페이지</span>
                     <span>·</span>
                     <span>AI 생성</span>
@@ -394,7 +438,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32">
+      <section id="download" className="py-24 md:py-32 scroll-mt-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="relative rounded-[2rem] p-12 md:p-20 text-center overflow-hidden">
             {/* Dreamy sky background with dark overlay for readability */}
@@ -418,19 +462,37 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-white text-gray-900 hover:bg-gray-100 rounded-full h-14 px-8 text-base font-semibold"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  App Store
-                </Button>
+                {APP_STORE_URL ? (
+                  <Button
+                    size="lg"
+                    className="bg-white text-gray-900 hover:bg-gray-100 rounded-full h-14 px-8 text-base font-semibold"
+                    asChild
+                  >
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                      <Download className="w-5 h-5 mr-2" />
+                      App Store
+                    </a>
+                  </Button>
+                ) : (
+                  // App Store 앱 ID 미설정 시 깨진 링크 대신 비활성 표시(src/lib/app-links.ts 참고)
+                  <Button
+                    size="lg"
+                    disabled
+                    className="bg-white/20 text-white/70 rounded-full h-14 px-8 text-base font-semibold cursor-not-allowed"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    App Store 준비 중
+                  </Button>
+                )}
                 <Button
                   size="lg"
                   className="bg-white/10 text-white hover:bg-white/20 border border-white/20 rounded-full h-14 px-8 text-base font-semibold"
+                  asChild
                 >
-                  <Download className="w-5 h-5 mr-2" />
-                  Google Play
+                  <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                    <Download className="w-5 h-5 mr-2" />
+                    Google Play
+                  </a>
                 </Button>
               </div>
             </div>
@@ -453,7 +515,7 @@ export default function HomePage() {
                 />
                 <span className="text-lg font-bold text-gray-900">KidStory</span>
               </Link>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-500 leading-relaxed">
                 AI가 만드는 세상에 하나뿐인
                 <br />
                 우리 아이 그림 동화
@@ -464,17 +526,17 @@ export default function HomePage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-4">제품</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="#features" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="#features" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     주요 기능
                   </Link>
                 </li>
                 <li>
-                  <Link href="#how-it-works" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="#how-it-works" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     이용 방법
                   </Link>
                 </li>
                 <li>
-                  <Link href="#stories" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="#stories" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     동화 미리보기
                   </Link>
                 </li>
@@ -485,13 +547,19 @@ export default function HomePage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-4">지원</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
-                    자주 묻는 질문
-                  </Link>
+                  <a
+                    href={SUPPORT_MAILTO}
+                    className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
+                  >
+                    문의하기
+                  </a>
                 </li>
                 <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
-                    문의하기
+                  <Link
+                    href="/account-deletion"
+                    className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
+                  >
+                    계정 및 데이터 삭제
                   </Link>
                 </li>
               </ul>
@@ -501,17 +569,17 @@ export default function HomePage() {
               <h4 className="text-sm font-semibold text-gray-900 mb-4">법적 고지</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/privacy" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     개인정보처리방침
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     이용약관
                   </Link>
                 </li>
                 <li>
-                  <Link href="/account-deletion" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                  <Link href="/account-deletion" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
                     계정 및 데이터 삭제
                   </Link>
                 </li>
@@ -520,7 +588,7 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-100 mt-10 pt-8 text-center">
-            <p className="text-sm text-gray-400">&copy; 2026 KidStory. All rights reserved.</p>
+            <p className="text-sm text-gray-500">&copy; 2026 KidStory. All rights reserved.</p>
           </div>
         </div>
       </footer>
