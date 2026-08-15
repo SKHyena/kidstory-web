@@ -128,7 +128,7 @@ export default function HomePage() {
               alt="KidStory"
               width={36}
               height={36}
-              className="w-9 h-9 rounded-xl shadow-sm"
+              className="w-9 h-9"
             />
             <span className="text-xl font-bold tracking-tight text-gray-900">KidStory</span>
           </Link>
@@ -345,7 +345,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">HOW IT WORKS</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance leading-tight break-keep">
               3단계면 동화가 완성돼요
             </h2>
           </div>
@@ -420,7 +420,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">FEATURES</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance leading-tight break-keep">
               KidStory가 특별한 이유
             </h2>
           </div>
@@ -512,7 +512,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-[var(--color-primary)] mb-3">STORIES</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance">
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-balance leading-tight break-keep">
               이런 동화가 만들어져요
             </h2>
             <p className="text-gray-500 mt-4 max-w-lg mx-auto">
@@ -596,7 +596,7 @@ export default function HomePage() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--color-primary)]/20 rounded-full blur-[100px]" />
 
             <div className="relative">
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 text-balance">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 text-balance leading-[1.4] break-keep">
                 오늘 밤, 우리 아이에게
                 <br />
                 특별한 동화를 선물하세요
@@ -655,7 +655,7 @@ export default function HomePage() {
                   alt="KidStory"
                   width={32}
                   height={32}
-                  className="w-8 h-8 rounded-lg"
+                  className="w-8 h-8"
                 />
                 <span className="text-lg font-bold text-gray-900">KidStory</span>
               </Link>

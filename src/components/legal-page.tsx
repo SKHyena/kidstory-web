@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BookOpen, ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LegalPageProps {
@@ -37,9 +38,7 @@ export function LegalPage({
             </Button>
             <div className="h-5 w-px bg-gray-200" />
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                <BookOpen className="w-4 h-4 text-white" />
-              </div>
+              <Image src="/images/logo.png" alt="KidStory" width={32} height={32} className="w-8 h-8" />
               <span className="text-lg font-bold text-gray-900">KidStory</span>
             </Link>
           </div>
