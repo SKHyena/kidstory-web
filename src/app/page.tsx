@@ -18,6 +18,39 @@ import {
   Smartphone,
 } from "lucide-react";
 
+/** 히어로의 동화책 카드 한 장. featured는 앞쪽 메인 카드(더 크고 진한 그림자). */
+function StoryCard({
+  src,
+  alt,
+  featured = false,
+}: {
+  src: string;
+  alt: string;
+  featured?: boolean;
+}) {
+  return (
+    <div
+      className={`bg-white ${
+        featured ? "rounded-[1.5rem] p-2.5 shadow-2xl" : "rounded-2xl p-1.5 shadow-xl"
+      }`}
+    >
+      <div
+        className={`relative aspect-[3/4] overflow-hidden ${
+          featured ? "rounded-[1.1rem]" : "rounded-xl"
+        }`}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 1024px) 45vw, 22vw"
+          className="object-cover"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -57,100 +90,105 @@ export default function HomePage() {
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Dreamy sky background from the app */}
+      {/* Hero Section — 좌: 카피/CTA, 우: 동화책 카드 팬.
+          카드 배치는 고정 px 높이가 아니라 컨테이너 비율(aspect) + % 기준이라
+          화면 폭이 바뀌어도 겹침 구도가 그대로 유지된다. */}
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        {/* Dreamy sky background */}
         <div className="absolute inset-0 -z-10">
           <Image
             src="/images/dreamy-sky.jpg"
             alt=""
             fill
             priority
-            className="object-cover object-top opacity-90"
+            className="object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/25 via-[var(--background)]/65 to-[var(--background)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/45 via-[var(--background)]/80 to-[var(--background)]" />
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-[var(--color-soft-pink)] text-[var(--color-primary)] rounded-full px-4 py-1.5 text-sm font-medium mb-8">
-              <Sparkles className="w-4 h-4" />
-              우리 아이가 동화 속 주인공이 됩니다
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-10 items-center max-w-6xl mx-auto">
+            {/* Copy */}
+            <div className="text-center lg:text-left animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur border border-[var(--color-primary)]/15 text-[var(--color-primary)] rounded-full px-4 py-1.5 text-sm font-medium mb-7">
+                <Sparkles className="w-4 h-4" />
+                우리 아이가 동화 속 주인공이 됩니다
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6 text-balance leading-[1.12]">
+                세상에 단 하나뿐인
+                <br />
+                <span className="bg-gradient-to-r from-[var(--color-secondary)] via-[#EE9F52] to-[var(--color-accent)] bg-clip-text text-transparent">
+                  우리 아이 동화책
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-gray-500 mb-9 max-w-xl mx-auto lg:mx-0 leading-relaxed text-pretty">
+                아이의 사진 한 장이면 충분해요.
+                <br className="hidden sm:block lg:hidden" />
+                {" "}AI가 아이를 주인공으로 한 아름다운 그림 동화를 만들어 드립니다.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <Button
+                  size="lg"
+                  className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full h-14 px-8 text-base font-semibold shadow-lg shadow-[var(--color-primary)]/25"
+                  asChild
+                >
+                  <Link href="#download">
+                    <Smartphone className="w-5 h-5 mr-2" />
+                    무료로 시작하기
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full h-14 px-8 text-base font-semibold border-gray-200 bg-white hover:bg-gray-50"
+                  asChild
+                >
+                  <Link href="#stories">
+                    실제 동화 보기
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+
+              <p className="mt-6 text-sm text-gray-500 flex items-center gap-2 justify-center lg:justify-start">
+                <BookOpen className="w-4 h-4 text-[var(--color-primary)]" />
+                5페이지 그림 동화 · 음성 읽어주기 지원
+              </p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 text-balance leading-[1.1]">
-              세상에 단 하나뿐인
-              <br />
-              <span className="bg-gradient-to-r from-[var(--color-secondary)] via-[#EE9F52] to-[var(--color-accent)] bg-clip-text text-transparent">
-                우리 아이 동화책
-              </span>
-            </h1>
+            {/* Visual — 동화책 카드 팬 + 아이 캐릭터 */}
+            <div className="relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none">
+              <div className="relative aspect-[4/4.7]">
+                {/* 뒤 카드 - 좌 */}
+                <div className="animate-float-slow absolute left-0 top-[10%] w-[40%] -rotate-12 z-0">
+                  <StoryCard src="/images/soft-hills.jpg" alt="동화 속 언덕 풍경" />
+                </div>
 
-            <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-xl mx-auto leading-relaxed">
-              아이의 사진 한 장이면 충분해요.
-              <br className="hidden md:block" />
-              AI가 아이를 주인공으로 한 아름다운 그림 동화를 만들어 드립니다.
-            </p>
+                {/* 뒤 카드 - 우 */}
+                <div className="animate-float-delay absolute right-0 top-[6%] w-[40%] rotate-12 z-0">
+                  <StoryCard src="/images/scene-cover.jpg" alt="동화 속 마법의 성" />
+                </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
-                size="lg"
-                className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full h-14 px-8 text-base font-semibold shadow-lg shadow-[var(--color-primary)]/25"
-                asChild
-              >
-                <Link href="#download">
-                  <Smartphone className="w-5 h-5 mr-2" />
-                  무료로 시작하기
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full h-14 px-8 text-base font-semibold border-gray-200 bg-white hover:bg-gray-50"
-                asChild
-              >
-                <Link href="#how-it-works">
-                  어떻게 만들어지나요?
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </Button>
-            </div>
-          </div>
+                {/* 메인 카드 */}
+                <div className="animate-float absolute left-1/2 -translate-x-1/2 top-0 w-[54%] z-10">
+                  <StoryCard src="/images/scene-tree.jpg" alt="빛나는 나무가 있는 동화 한 장면" featured />
+                </div>
 
-          {/* Hero Visual - real storybook illustrations from the app */}
-          <div className="mt-20 md:mt-28 relative max-w-4xl mx-auto h-[360px] md:h-[460px]">
-            {/* Small scene card floating top-right */}
-            <div className="animate-float-delay absolute right-2 md:right-16 top-0 w-32 md:w-44 rotate-6 z-0">
-              <div className="bg-white rounded-2xl shadow-xl p-2">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-                  <Image src="/images/soft-hills.jpg" alt="동화 속 풍경" fill className="object-cover" />
+                {/* 아이 캐릭터 (투명 PNG) */}
+                <div className="animate-float-slow absolute left-[-4%] bottom-[4%] w-[52%] z-20 drop-shadow-2xl">
+                  <Image
+                    src="/images/child-reading.png"
+                    alt="책 읽는 아이 일러스트"
+                    width={500}
+                    height={500}
+                    priority
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
-            </div>
-
-            {/* Main storybook scene */}
-            <div className="animate-float absolute left-1/2 -translate-x-1/2 top-6 md:top-2 w-64 md:w-80 z-10">
-              <div className="bg-white rounded-[1.75rem] shadow-2xl p-3">
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
-                  <Image src="/images/scene-tree.jpg" alt="우리 아이가 주인공인 동화 한 장면" fill className="object-cover" />
-                  <div className="absolute bottom-3 left-3">
-                    <span className="bg-white/90 backdrop-blur text-xs font-semibold text-gray-600 px-3 py-1 rounded-full shadow-sm">
-                      우리 아이 동화
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Child character floating, overlapping the main card (transparent PNG) */}
-            <div className="animate-float-slow absolute left-2 md:left-24 bottom-0 w-44 md:w-64 z-20 drop-shadow-xl">
-              <Image
-                src="/images/child-reading.png"
-                alt="책 읽는 아이 일러스트"
-                width={400}
-                height={400}
-                className="w-full h-auto"
-              />
             </div>
           </div>
         </div>
@@ -441,11 +479,12 @@ export default function HomePage() {
       <section id="download" className="py-24 md:py-32 scroll-mt-16">
         <div className="container mx-auto px-4 md:px-8">
           <div className="relative rounded-[2rem] p-12 md:p-20 text-center overflow-hidden">
-            {/* Dreamy sky background with dark overlay for readability */}
+            {/* 밤하늘 장면 — "오늘 밤" 카피와 맞춘 배경. 가독성을 위해 어두운 오버레이를 덮는다. */}
             <Image
-              src="/images/dreamy-sky.jpg"
+              src="/images/story-space.jpg"
               alt=""
               fill
+              sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/75 to-gray-900/85" />
