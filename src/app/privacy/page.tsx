@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="개인정보처리방침"
       effectiveDate="2026년 7월 21일"
-      updatedDate="2026년 7월 21일"
+      updatedDate="2026년 8월 15일"
       current="/privacy"
     >
       <section>
@@ -124,9 +124,15 @@ export default function PrivacyPage() {
             </thead>
             <tbody className="text-gray-600">
               <tr className="border-b border-gray-100">
-                <td className="py-3 pr-4">Amazon Web Services, Inc. (AWS)</td>
+                <td className="py-3 pr-4">Oracle Corporation (Oracle Cloud Infrastructure)</td>
                 <td className="py-3">
-                  이미지·데이터 저장(S3) 및 클라우드 서버 인프라 운영 (국내 서울 리전에 저장)
+                  자녀 사진 및 동화 삽화 등 이미지 파일 저장 (국내 춘천 리전에 저장)
+                </td>
+              </tr>
+              <tr className="border-b border-gray-100">
+                <td className="py-3 pr-4">Supabase, Inc.</td>
+                <td className="py-3">
+                  회원·자녀 프로필 및 동화 정보 데이터베이스 호스팅 (국외 저장, 본 방침 제7조 참조)
                 </td>
               </tr>
               <tr className="border-b border-gray-100">
@@ -161,20 +167,47 @@ export default function PrivacyPage() {
           회사는 서비스 제공을 위해 아래와 같이 개인정보가 국외의 수탁자에게 이전(처리위탁)될 수 있습니다.
           이용자는 서비스 이용(소셜 로그인, AI 동화 생성 등)을 통해 아래 국외 이전에 동의한 것으로 봅니다.
         </p>
-        <ul className="list-disc pl-6 mt-3 space-y-1">
-          <li>이전받는 자: Google LLC</li>
-          <li>
-            이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, AI 동화 생성에 입력되는 자녀 프로필
-            정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터
-          </li>
-          <li>이전 국가: 미국</li>
-          <li>이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성) 시점에 정보통신망을 통해 전송</li>
-          <li>이전받는 자의 이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송</li>
-          <li>보유 기간: 본 방침 제3조와 동일</li>
-        </ul>
-        <p className="mt-3">
-          한편 이용자의 사진·동화 등 저장 데이터가 보관되는 AWS S3 스토리지 및 서버 인프라는 국내(서울,
-          ap-northeast-2) 리전에 위치하므로 국외 이전에 해당하지 않습니다.
+        <div className="mt-4 space-y-5">
+          <div>
+            <h3 className="font-semibold text-gray-800">가. Google LLC (미국)</h3>
+            <ul className="list-disc pl-6 mt-1 space-y-1">
+              <li>
+                이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, AI 동화 생성에 입력되는 자녀 프로필
+                정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터, 기기 푸시 토큰
+              </li>
+              <li>이전 국가: 미국</li>
+              <li>
+                이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성, 푸시 알림 발송) 시점에
+                정보통신망을 통해 전송
+              </li>
+              <li>
+                이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송
+              </li>
+              <li>보유 기간: 본 방침 제3조와 동일</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-800">나. Supabase, Inc. (인도)</h3>
+            <ul className="list-disc pl-6 mt-1 space-y-1">
+              <li>
+                이전 항목: 소셜 계정 고유 식별자, 이메일 주소, 닉네임, 프로필 이미지 주소, 자녀 이름·나이·성별
+                및 관심사, 생성된 동화의 제목·본문 등 서비스 이용 정보
+              </li>
+              <li>이전 국가: 인도 (Amazon Web Services 뭄바이 리전, ap-south-1)</li>
+              <li>이전 일시 및 방법: 회원 가입 및 서비스 이용 시점에 정보통신망을 통해 전송·저장</li>
+              <li>이용 목적: 서비스 운영을 위한 데이터베이스 호스팅 및 보관</li>
+              <li>보유 기간: 본 방침 제3조와 동일</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-4">
+          한편 자녀 사진 및 동화 삽화 등 이미지 파일은 Oracle Cloud Infrastructure의 국내(춘천) 리전에
+          저장되므로 국외 이전에 해당하지 않습니다.
+        </p>
+        <p className="mt-3 text-sm text-gray-500">
+          ※ 정보주체는 위 개인정보의 국외 이전을 거부할 수 있습니다. 다만 국외 이전되는 정보는 서비스
+          제공에 필수적인 항목이므로, 거부하시는 경우 회원 가입 및 동화 생성 등 서비스 이용이 제한될 수
+          있습니다. 거부를 원하시는 경우 본 방침 제12조의 개인정보 보호책임자에게 요청해 주시기 바랍니다.
         </p>
       </section>
 
@@ -207,7 +240,7 @@ export default function PrivacyPage() {
         <ul className="list-disc pl-6 mt-3 space-y-1">
           <li>파기 절차: 파기 사유가 발생한 개인정보를 선정하고, 개인정보 보호책임자의 확인을 받아 파기합니다.</li>
           <li>전자적 파일 형태의 정보: 복구 및 재생이 불가능한 기술적 방법으로 영구 삭제</li>
-          <li>자녀 사진 및 생성 동화: 회원 탈퇴 또는 해당 프로필·동화 삭제 시 저장소(S3 등)에서 즉시 삭제</li>
+          <li>자녀 사진 및 생성 동화: 회원 탈퇴 또는 해당 프로필·동화 삭제 시 이미지 저장소에서 즉시 삭제</li>
         </ul>
       </section>
 
@@ -268,6 +301,17 @@ export default function PrivacyPage() {
           있는 경우에는 변경사항의 시행 7일 전부터 서비스 내 공지사항을 통하여 고지합니다. 다만, 이용자
           권리의 중요한 변경이 있는 경우에는 최소 30일 전에 고지합니다.
         </p>
+        <div className="mt-4">
+          <h3 className="font-semibold text-gray-800">개정 이력</h3>
+          <ul className="list-disc pl-6 mt-1 space-y-1">
+            <li>2026년 7월 21일: 최초 시행</li>
+            <li>
+              2026년 8월 15일: 개인정보 처리업무 위탁 현황(제6조) 및 국외 이전 현황(제7조)을 실제 처리
+              환경에 맞게 정정 — 이미지 저장소(Oracle Cloud, 국내 춘천) 및 데이터베이스 호스팅(Supabase,
+              국외 인도) 수탁자 정보 반영
+            </li>
+          </ul>
+        </div>
       </section>
     </LegalPage>
   );
