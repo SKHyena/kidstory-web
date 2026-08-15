@@ -140,6 +140,10 @@ export default function PrivacyPage() {
                 <td className="py-3">구글 소셜 로그인 인증, AI 동화·삽화 생성(Gemini API)</td>
               </tr>
               <tr className="border-b border-gray-100">
+                <td className="py-3 pr-4">Google LLC (Google Analytics)</td>
+                <td className="py-3">웹사이트 방문 통계 분석 (앱에는 적용되지 않음)</td>
+              </tr>
+              <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Google LLC (Firebase)</td>
                 <td className="py-3">푸시 알림 발송(Firebase Cloud Messaging)</td>
               </tr>
@@ -173,15 +177,20 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-6 mt-1 space-y-1">
               <li>
                 이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, AI 동화 생성에 입력되는 자녀 프로필
-                정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터, 기기 푸시 토큰
+                정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터, 기기 푸시 토큰,
+                <span className="font-medium text-gray-700">
+                  {" "}웹사이트 방문 시 쿠키 기반 온라인 식별자·접속 기기 및 브라우저 정보·방문 페이지 및
+                  이용 기록·유입 경로·대략적 위치(국가·도시 수준)
+                </span>
               </li>
               <li>이전 국가: 미국</li>
               <li>
-                이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성, 푸시 알림 발송) 시점에
-                정보통신망을 통해 전송
+                이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성, 푸시 알림 발송) 및
+                웹사이트 방문 시점에 정보통신망을 통해 전송
               </li>
               <li>
-                이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송
+                이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송,
+                웹사이트 방문 통계 분석(Google Analytics)
               </li>
               <li>보유 기간: 본 방침 제3조와 동일</li>
             </ul>
@@ -257,9 +266,30 @@ export default function PrivacyPage() {
       <section>
         <h2 className="text-lg font-bold text-gray-900 mb-3">11. 쿠키 등 자동 수집장치의 설치·운영 및 거부</h2>
         <p>
-          회사는 서비스 이용 과정에서 맞춤형 서비스 제공을 위해 쿠키 또는 이와 유사한 기술을 사용할 수
-          있습니다. 이용자는 웹 브라우저 또는 기기 설정을 통해 쿠키 및 광고 식별자 등의 수집을 거부할 수
-          있으나, 이 경우 일부 서비스 이용에 제한이 있을 수 있습니다.
+          회사는 웹사이트(kidstory.skhyena.com) 이용 현황을 파악하고 서비스를 개선하기 위하여 Google
+          Analytics를 사용하며, 이 과정에서 쿠키가 설치·운영됩니다. 모바일 앱에는 적용되지 않습니다.
+        </p>
+        <ul className="list-disc pl-6 mt-3 space-y-1">
+          <li>사용 목적: 웹사이트 방문자 수·유입 경로·페이지별 이용 현황 등 통계 분석</li>
+          <li>
+            수집 항목: 쿠키 기반 온라인 식별자, 접속 기기 및 브라우저 정보, 방문 페이지 및 이용 기록, 유입
+            경로, 대략적 위치(국가·도시 수준)
+          </li>
+          <li>수집 항목에는 이름·이메일 등 이용자를 직접 식별할 수 있는 정보가 포함되지 않습니다.</li>
+        </ul>
+        <p className="mt-3">
+          <span className="font-semibold text-gray-800">거부 방법:</span> 이용자는 웹 브라우저 설정에서
+          쿠키 저장을 거부하거나, Google이 제공하는{" "}
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-primary-dark)] transition-colors"
+          >
+            Google Analytics 차단 브라우저 부가기능
+          </a>
+          을 설치하여 수집을 거부할 수 있습니다. 쿠키 저장을 거부하더라도 웹사이트 열람에는 제한이
+          없습니다.
         </p>
       </section>
 
@@ -305,6 +335,10 @@ export default function PrivacyPage() {
           <h3 className="font-semibold text-gray-800">개정 이력</h3>
           <ul className="list-disc pl-6 mt-1 space-y-1">
             <li>2026년 7월 21일: 최초 시행</li>
+            <li>
+              2026년 8월 15일: 웹사이트 방문 통계 분석을 위한 Google Analytics 도입에 따라 위탁 현황(제6조),
+              국외 이전 현황(제7조) 및 쿠키 사용·거부 방법(제11조) 추가
+            </li>
             <li>
               2026년 8월 15일: 개인정보 처리업무 위탁 현황(제6조) 및 국외 이전 현황(제7조)을 실제 처리
               환경에 맞게 정정 — 이미지 저장소(Oracle Cloud, 국내 춘천) 및 데이터베이스 호스팅(Supabase,
