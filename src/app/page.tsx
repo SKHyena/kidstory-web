@@ -10,6 +10,8 @@ import {
   BookMarked,
   Volume2,
   Shield,
+  ShieldCheck,
+  UserCheck,
   Lock,
   Trash2,
   ArrowRight,
@@ -46,6 +48,69 @@ function StoryCard({
           sizes="(max-width: 1024px) 45vw, 22vw"
           className="object-cover"
         />
+      </div>
+    </div>
+  );
+}
+
+/** Step 01 미리보기 — 자녀 프로필 입력 화면을 단순화한 목업. */
+function StepProfilePreview() {
+  return (
+    <div className="w-full max-w-[190px] bg-white rounded-xl shadow-sm p-3 flex items-center gap-3">
+      <div className="w-11 h-11 rounded-full border-2 border-dashed border-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
+        <Camera className="w-4 h-4 text-amber-500" />
+      </div>
+      <div className="flex-1 min-w-0 space-y-1.5">
+        <div className="h-2 w-14 bg-gray-200 rounded-full" />
+        <div className="flex gap-1">
+          <span className="text-[9px] font-semibold bg-[var(--color-soft-yellow)] text-amber-600 px-1.5 py-0.5 rounded-full">
+            5세
+          </span>
+          <span className="text-[9px] font-semibold bg-[var(--color-soft-blue)] text-[var(--color-primary)] px-1.5 py-0.5 rounded-full">
+            #공룡
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Step 02 미리보기 — 생성 중 상태(스켈레톤 + 시머). */
+function StepGeneratingPreview() {
+  return (
+    <div className="w-full max-w-[190px] bg-white rounded-xl shadow-sm p-3">
+      <div className="flex items-center gap-2 mb-2.5">
+        <Wand2 className="w-3.5 h-3.5 text-[var(--color-primary)]" />
+        <span className="text-[10px] font-semibold text-gray-600">AI가 그리는 중…</span>
+      </div>
+      <div className="animate-shimmer bg-gradient-to-r from-gray-100 via-white to-gray-100 h-12 rounded-lg mb-2" />
+      <div className="space-y-1.5">
+        <div className="h-1.5 w-full bg-gray-100 rounded-full" />
+        <div className="h-1.5 w-3/5 bg-gray-100 rounded-full" />
+      </div>
+    </div>
+  );
+}
+
+/** Step 03 미리보기 — 완성된 동화 한 페이지(삽화 + 본문 + 음성). */
+function StepBookPreview() {
+  return (
+    <div className="w-full max-w-[190px] bg-white rounded-xl shadow-sm p-2">
+      <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-2">
+        <Image
+          src="/images/story-nature.jpg"
+          alt="완성된 동화 삽화 예시"
+          fill
+          sizes="200px"
+          className="object-cover"
+        />
+        <span className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-sm">
+          <Volume2 className="w-2.5 h-2.5 text-[var(--color-secondary)]" />
+        </span>
+      </div>
+      <div className="px-1 space-y-1 pb-0.5">
+        <div className="h-1.5 w-full bg-gray-100 rounded-full" />
+        <div className="h-1.5 w-2/3 bg-gray-100 rounded-full" />
       </div>
     </div>
   );
@@ -194,57 +259,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust — 아이 사진을 맡기는 부모의 불안을 먼저 해소한다 */}
-      <section className="py-14 border-y border-gray-100 bg-white">
+      {/* Trust — 아이 사진을 맡기는 부모의 불안을 정면으로 다룬다.
+          중앙정렬 3열이 아니라 좌(질문·답변)/우(근거 2x2)로 나눠 다른 섹션과 리듬을 달리한다. */}
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
-          <p className="text-center text-sm font-semibold text-[var(--color-primary)] mb-8">
-            안심하고 맡기세요
-          </p>
-          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center text-center gap-3">
-              <div className="w-11 h-11 bg-[var(--color-soft-blue)] rounded-xl flex items-center justify-center">
-                <Lock className="w-5 h-5 text-[var(--color-primary)]" />
-              </div>
+          <div className="max-w-5xl mx-auto bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-12">
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center">
+              {/* 질문과 답 */}
               <div>
-                <h3 className="font-bold text-gray-900 text-[15px] mb-1">사진은 삽화 생성에만</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  아이 사진은 동화 삽화를 만드는 데만 쓰이고, 외부에 공개되지 않습니다.
+                <div className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] mb-4">
+                  <ShieldCheck className="w-4 h-4" />
+                  안심하고 맡기세요
+                </div>
+                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 leading-snug text-balance">
+                  아이 사진,
+                  <br />
+                  안전하게 다뤄지나요?
+                </h2>
+                <p className="mt-4 text-gray-500 leading-relaxed">
+                  아이의 정보를 맡기는 일이니까요. KidStory는 받은 정보를 동화를 만드는 데에만
+                  쓰고, 원하실 때 남김없이 지울 수 있도록 만들었습니다.
                 </p>
+                <Link
+                  href="/privacy"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
+                >
+                  개인정보처리방침 자세히 보기
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-            </div>
-            <div className="flex flex-col items-center text-center gap-3">
-              <div className="w-11 h-11 bg-[var(--color-soft-green)] rounded-xl flex items-center justify-center">
-                <Shield className="w-5 h-5 text-[var(--color-secondary)]" />
-              </div>
-              <div>
-                <h3 className="font-bold text-gray-900 text-[15px] mb-1">아동 안전 필터링</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  아이에게 적합한 내용만 생성되도록 안전 기준을 적용합니다.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center text-center gap-3">
-              <div className="w-11 h-11 bg-[var(--color-soft-yellow)] rounded-xl flex items-center justify-center">
-                <Trash2 className="w-5 h-5 text-amber-500" />
-              </div>
-              <div>
-                <h3 className="font-bold text-gray-900 text-[15px] mb-1">언제든 삭제 가능</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  탈퇴하면 사진과 동화를 포함한 데이터가 지체 없이 파기됩니다.
-                </p>
+
+              {/* 근거 4가지 */}
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  {
+                    icon: Lock,
+                    tint: "bg-[var(--color-soft-blue)]",
+                    color: "text-[var(--color-primary)]",
+                    title: "삽화 생성에만 사용",
+                    desc: "등록한 사진은 동화 삽화를 만드는 데에만 쓰입니다. 다른 이용자에게 공개하거나 마케팅에 이용하지 않습니다.",
+                  },
+                  {
+                    icon: UserCheck,
+                    tint: "bg-[var(--color-soft-green)]",
+                    color: "text-[var(--color-secondary)]",
+                    title: "보호자 동의 후 처리",
+                    desc: "만 14세 미만 자녀의 정보는 법정대리인(보호자)의 동의를 받은 뒤에만 처리합니다.",
+                  },
+                  {
+                    icon: Shield,
+                    tint: "bg-[var(--color-soft-pink)]",
+                    color: "text-[var(--color-secondary)]",
+                    title: "아이에게 맞는 내용만",
+                    desc: "폭력적이거나 아이에게 유해한 내용이 생성되지 않도록 안전 기준을 적용합니다.",
+                  },
+                  {
+                    icon: Trash2,
+                    tint: "bg-[var(--color-soft-yellow)]",
+                    color: "text-amber-500",
+                    title: "언제든 삭제",
+                    desc: "앱에서 직접 탈퇴하면 자녀 정보와 만든 동화가 지체 없이 파기됩니다.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-gray-100 p-5 hover:border-gray-200 transition-colors"
+                  >
+                    <div
+                      className={`w-10 h-10 ${item.tint} rounded-xl flex items-center justify-center mb-3`}
+                    >
+                      <item.icon className={`w-5 h-5 ${item.color}`} />
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-[15px] mb-1.5">{item.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-          <p className="text-center mt-8 text-sm text-gray-500">
-            자세한 내용은{" "}
-            <Link
-              href="/privacy"
-              className="font-semibold text-[var(--color-primary)] underline underline-offset-4 hover:text-[var(--color-primary-dark)] transition-colors"
-            >
-              개인정보처리방침
-            </Link>
-            에서 확인하실 수 있어요.
-          </p>
         </div>
       </section>
 
@@ -258,54 +350,67 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Step 1 */}
-            <div className="relative group">
-              <div className="bg-[var(--color-soft-yellow)] rounded-3xl p-8 h-full transition-transform group-hover:-translate-y-1">
-                <div className="w-12 h-12 bg-[var(--color-accent)] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-accent)]/30">
-                  <Camera className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-sm font-bold text-amber-500 mb-2">Step 01</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">아이 프로필 등록</h3>
-                <p className="text-gray-500 leading-relaxed">
-                  아이의 사진, 이름, 나이, 관심사를 입력해주세요. AI가 아이의 특징을 학습합니다.
-                </p>
-              </div>
-              <div className="hidden md:block absolute top-1/2 -right-4 z-10">
-                <ArrowRight className="w-8 h-8 text-gray-300" />
-              </div>
-            </div>
+          {/* 단계 번호를 카드 위 배지로 빼고, 배지 사이를 점선으로 잇는다.
+              (기존엔 화살표 아이콘이 카드 옆에 겹쳐 떠 있어 정렬이 어색했다) */}
+          <div className="grid md:grid-cols-3 gap-8 md:gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                n: "01",
+                icon: Camera,
+                badge: "bg-[var(--color-accent)] shadow-[var(--color-accent)]/30",
+                tint: "bg-[var(--color-soft-yellow)]",
+                title: "아이 프로필 등록",
+                desc: "아이의 사진, 이름, 나이, 관심사를 입력해주세요. AI가 아이의 특징을 파악합니다.",
+              },
+              {
+                n: "02",
+                icon: Wand2,
+                badge: "bg-[var(--color-primary)] shadow-[var(--color-primary)]/25",
+                tint: "bg-[var(--color-soft-pink)]",
+                title: "AI 동화 생성",
+                desc: "관심사와 나이에 맞는 이야기를 AI가 쓰고, 아이가 등장하는 삽화를 그립니다.",
+              },
+              {
+                n: "03",
+                icon: BookMarked,
+                badge: "bg-[var(--color-secondary)] shadow-[var(--color-secondary)]/25",
+                tint: "bg-[var(--color-soft-green)]",
+                title: "동화 감상",
+                desc: "완성된 5페이지 그림 동화를 읽어보세요. 감정이 담긴 음성으로 읽어주기도 해요.",
+              },
+            ].map((step, i) => (
+              <div key={step.n} className="relative group">
+                {/* 다음 단계로 잇는 점선 (마지막 카드 제외) */}
+                {i < 2 && (
+                  <div
+                    aria-hidden
+                    className="hidden md:block absolute top-6 left-[calc(50%+1.75rem)] w-[calc(100%-2rem)] border-t-2 border-dashed border-gray-200"
+                  />
+                )}
 
-            {/* Step 2 */}
-            <div className="relative group">
-              <div className="bg-[var(--color-soft-pink)] rounded-3xl p-8 h-full transition-transform group-hover:-translate-y-1">
-                <div className="w-12 h-12 bg-[var(--color-primary)] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-primary)]/20">
-                  <Wand2 className="w-6 h-6 text-white" />
+                {/* 단계 번호 배지 */}
+                <div
+                  className={`relative z-10 mx-auto w-12 h-12 rounded-full ${step.badge} shadow-lg flex items-center justify-center`}
+                >
+                  <step.icon className="w-5 h-5 text-white" />
                 </div>
-                <div className="text-sm font-bold text-[var(--color-primary)] mb-2">Step 02</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">AI 동화 생성</h3>
-                <p className="text-gray-500 leading-relaxed">
-                  관심사와 나이에 맞는 스토리를 AI가 작성하고, 아이가 등장하는 삽화를 그려줍니다.
-                </p>
-              </div>
-              <div className="hidden md:block absolute top-1/2 -right-4 z-10">
-                <ArrowRight className="w-8 h-8 text-gray-300" />
-              </div>
-            </div>
 
-            {/* Step 3 */}
-            <div className="group">
-              <div className="bg-[var(--color-soft-green)] rounded-3xl p-8 h-full transition-transform group-hover:-translate-y-1">
-                <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-secondary)]/20">
-                  <BookMarked className="w-6 h-6 text-white" />
+                <div className="mt-5 bg-white rounded-3xl border border-gray-100 p-5 h-[calc(100%-4.25rem)] transition-all group-hover:-translate-y-1 group-hover:shadow-lg">
+                  {/* 단계별 미리보기 */}
+                  <div
+                    className={`${step.tint} rounded-2xl aspect-[5/3] mb-5 overflow-hidden flex items-center justify-center p-4`}
+                  >
+                    {i === 0 && <StepProfilePreview />}
+                    {i === 1 && <StepGeneratingPreview />}
+                    {i === 2 && <StepBookPreview />}
+                  </div>
+
+                  <div className="text-xs font-bold text-gray-400 mb-1.5">STEP {step.n}</div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
                 </div>
-                <div className="text-sm font-bold text-[var(--color-secondary)] mb-2">Step 03</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">동화 감상</h3>
-                <p className="text-gray-500 leading-relaxed">
-                  완성된 5페이지 그림 동화를 읽어보세요. 감정이 담긴 음성으로 읽어주기도 해요.
-                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
