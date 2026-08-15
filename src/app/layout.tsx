@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+
+/** GA4 측정 ID. 공개 값이라 코드에 두어도 무방하다(HTML에 그대로 노출된다). */
+const GA_MEASUREMENT_ID = "G-PXF93TZ391";
 
 const SITE_URL = "https://kidstory.skhyena.com";
 const SITE_TITLE = "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화";
@@ -79,6 +83,8 @@ html {
         `}</style>
       </head>
       <body>{children}</body>
+      {/* GA4. 로컬 개발 트래픽이 집계에 섞이지 않도록 프로덕션 빌드에서만 로드한다. */}
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   );
 }
