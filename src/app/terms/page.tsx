@@ -10,6 +10,7 @@ export default function TermsPage() {
     <LegalPage
       title="이용약관"
       effectiveDate="2026년 7월 21일"
+      updatedDate="2026년 8월 23일"
       current="/terms"
     >
       <section>
@@ -26,7 +27,7 @@ export default function TermsPage() {
         <ul className="list-disc pl-6 mt-1 space-y-1">
           <li>&quot;서비스&quot;란 이용자가 등록한 자녀 프로필을 기반으로 AI가 동화 텍스트 및 삽화를 생성하고, 음성 읽어주기(TTS) 및 동화 라이브러리 등을 제공하는 일체의 서비스를 말합니다.</li>
           <li>&quot;이용자&quot;란 이 약관에 따라 회사가 제공하는 서비스를 이용하는 회원을 말합니다.</li>
-          <li>&quot;회원&quot;이란 소셜 로그인(카카오, 구글)을 통해 계정을 생성하고 서비스를 이용하는 자를 말합니다.</li>
+          <li>&quot;회원&quot;이란 소셜 로그인(카카오, 구글, Apple)을 통해 계정을 생성하고 서비스를 이용하는 자를 말합니다.</li>
           <li>&quot;자녀 프로필&quot;이란 동화 생성을 위해 회원이 등록하는 자녀의 이름, 나이, 성별, 사진, 관심사 등의 정보를 말합니다.</li>
           <li>&quot;생성물&quot;이란 회원의 입력을 기반으로 서비스를 통해 생성된 동화 텍스트, 삽화 이미지, 음성 등 일체의 결과물을 말합니다.</li>
         </ul>
@@ -44,7 +45,7 @@ export default function TermsPage() {
       <section>
         <h2 className="text-lg font-bold text-gray-900 mb-3">제4조 (회원가입 및 계정)</h2>
         <ul className="list-disc pl-6 mt-1 space-y-1">
-          <li>회원가입은 이용자가 소셜 로그인(카카오, 구글)을 통해 인증하고 이 약관 및 개인정보처리방침에 동의함으로써 성립합니다.</li>
+          <li>회원가입은 이용자가 소셜 로그인(카카오, 구글, Apple)을 통해 인증하고 이 약관 및 개인정보처리방침에 동의함으로써 성립합니다.</li>
           <li>이용자는 하나의 소셜 계정으로 계정을 생성하며, 계정 정보를 최신 상태로 유지할 책임이 있습니다.</li>
           <li>이용자는 자신의 계정을 제3자가 이용하도록 허락할 수 없으며, 계정 관리 소홀로 발생한 손해에 대한 책임은 이용자 본인에게 있습니다.</li>
           <li>만 14세 미만 아동의 정보를 자녀 프로필로 등록하는 경우, 회원은 해당 아동의 법정대리인이거나 법정대리인의 동의를 받았음을 보증합니다.</li>
