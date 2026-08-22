@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="개인정보처리방침"
       effectiveDate="2026년 7월 21일"
-      updatedDate="2026년 8월 15일"
+      updatedDate="2026년 8월 23일"
       current="/privacy"
     >
       <section>
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
           <div>
             <h3 className="font-semibold text-gray-800">가. 회원(법정대리인) 정보</h3>
             <ul className="list-disc pl-6 mt-1 space-y-1">
-              <li>소셜 로그인(카카오, 구글) 연동 시: 소셜 계정 고유 식별자, 이메일 주소, 닉네임(프로필 이름), 프로필 이미지(제공에 동의한 경우)</li>
+              <li>소셜 로그인(카카오, 구글, Apple) 연동 시: 소셜 계정 고유 식별자, 이메일 주소, 닉네임(프로필 이름), 프로필 이미지(제공에 동의한 경우)</li>
               <li>서비스 알림을 위한 기기 푸시 토큰(FCM Registration Token)</li>
             </ul>
           </div>
