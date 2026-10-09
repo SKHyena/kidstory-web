@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="개인정보처리방침"
       effectiveDate="2026년 7월 21일"
-      updatedDate="2026년 8월 15일"
+      updatedDate="2026년 10월 9일"
       current="/privacy"
     >
       <section>
@@ -132,12 +132,22 @@ export default function PrivacyPage() {
               <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Supabase, Inc.</td>
                 <td className="py-3">
-                  회원·자녀 프로필 및 동화 정보 데이터베이스 호스팅 (국외 저장, 본 방침 제7조 참조)
+                  회원·자녀 프로필 및 동화 정보 데이터베이스 호스팅 (국내 서울 리전에 저장)
+                </td>
+              </tr>
+              <tr className="border-b border-gray-100">
+                <td className="py-3 pr-4">Amazon Web Services, Inc.</td>
+                <td className="py-3">서비스 API 서버 운영 (국내 서울 리전)</td>
+              </tr>
+              <tr className="border-b border-gray-100">
+                <td className="py-3 pr-4">OpenAI, L.L.C.</td>
+                <td className="py-3">
+                  AI 동화 원고 작성, 자녀 캐릭터·옷 바꾸기 이미지 및 동화 삽화 생성(OpenAI API)
                 </td>
               </tr>
               <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Google LLC</td>
-                <td className="py-3">구글 소셜 로그인 인증, AI 동화·삽화 생성(Gemini API)</td>
+                <td className="py-3">구글 소셜 로그인 인증, 자녀 사진 특징 분석(Gemini API)</td>
               </tr>
               <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">Google LLC (Google Analytics)</td>
@@ -169,15 +179,16 @@ export default function PrivacyPage() {
         <h2 className="text-lg font-bold text-gray-900 mb-3">7. 개인정보의 국외 이전</h2>
         <p>
           회사는 서비스 제공을 위해 아래와 같이 개인정보가 국외의 수탁자에게 이전(처리위탁)될 수 있습니다.
-          이용자는 서비스 이용(소셜 로그인, AI 동화 생성 등)을 통해 아래 국외 이전에 동의한 것으로 봅니다.
+          회사는 회원 가입 시 국외 이전에 대한 동의를 별도로 받으며, 자녀 사진·캐릭터 그림을 AI로 전송하기
+          전에는 앱에서 한 번 더 동의를 받습니다(앱 설정에서 언제든 철회할 수 있습니다).
         </p>
         <div className="mt-4 space-y-5">
           <div>
             <h3 className="font-semibold text-gray-800">가. Google LLC (미국)</h3>
             <ul className="list-disc pl-6 mt-1 space-y-1">
               <li>
-                이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, AI 동화 생성에 입력되는 자녀 프로필
-                정보 및 사진, 생성된 동화 텍스트·삽화·음성 데이터, 기기 푸시 토큰,
+                이전 항목: 구글 소셜 로그인 계정 식별자·이메일·닉네임, 자녀 사진(특징 분석), 동화 본문(음성
+                생성), 기기 푸시 토큰,
                 <span className="font-medium text-gray-700">
                   {" "}웹사이트 방문 시 쿠키 기반 온라인 식별자·접속 기기 및 브라우저 정보·방문 페이지 및
                   이용 기록·유입 경로·대략적 위치(국가·도시 수준)
@@ -185,33 +196,36 @@ export default function PrivacyPage() {
               </li>
               <li>이전 국가: 미국</li>
               <li>
-                이전 일시 및 방법: 서비스 이용(구글 로그인, AI 동화·삽화·음성 생성, 푸시 알림 발송) 및
+                이전 일시 및 방법: 서비스 이용(구글 로그인, 자녀 사진 분석, 동화 음성 생성, 푸시 알림 발송) 및
                 웹사이트 방문 시점에 정보통신망을 통해 전송
               </li>
               <li>
-                이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 AI 동화·삽화·음성 생성, 푸시 알림 발송,
+                이용 목적: 구글 소셜 로그인 인증, Gemini API를 통한 자녀 사진 특징 분석 및 동화 음성 생성, 푸시 알림 발송,
                 웹사이트 방문 통계 분석(Google Analytics)
               </li>
               <li>보유 기간: 본 방침 제3조와 동일</li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800">나. Supabase, Inc. (인도)</h3>
+            <h3 className="font-semibold text-gray-800">나. OpenAI, L.L.C. (미국)</h3>
             <ul className="list-disc pl-6 mt-1 space-y-1">
               <li>
-                이전 항목: 소셜 계정 고유 식별자, 이메일 주소, 닉네임, 프로필 이미지 주소, 자녀 이름·나이·성별
-                및 관심사, 생성된 동화의 제목·본문 등 서비스 이용 정보
+                이전 항목: 자녀 이름·나이·성별·관심사, 이야기 자료(이름·설명·사진), 자녀 사진 및 이를 바탕으로
+                그린 캐릭터 그림, 옷 바꾸기에 고른 옷 사진, 동화 원고
               </li>
-              <li>이전 국가: 인도 (Amazon Web Services 뭄바이 리전, ap-south-1)</li>
-              <li>이전 일시 및 방법: 회원 가입 및 서비스 이용 시점에 정보통신망을 통해 전송·저장</li>
-              <li>이용 목적: 서비스 운영을 위한 데이터베이스 호스팅 및 보관</li>
-              <li>보유 기간: 본 방침 제3조와 동일</li>
+              <li>이전 국가: 미국</li>
+              <li>
+                이전 일시 및 방법: 캐릭터 그리기·옷 바꾸기·동화 생성을 요청하는 시점에 정보통신망을 통해 전송
+              </li>
+              <li>이용 목적: AI 동화 원고 작성, 자녀 캐릭터·옷 바꾸기 이미지 및 동화 삽화 생성</li>
+              <li>보유 기간: 생성 요청 처리에 필요한 기간(수탁자의 API 데이터 보관 정책에 따름)</li>
             </ul>
           </div>
         </div>
         <p className="mt-4">
-          한편 자녀 사진 및 동화 삽화 등 이미지 파일은 Oracle Cloud Infrastructure의 국내(춘천) 리전에
-          저장되므로 국외 이전에 해당하지 않습니다.
+          한편 회원·자녀 정보 데이터베이스(Supabase, 서울 리전), 서비스 API 서버(Amazon Web Services, 서울
+          리전), 자녀 사진 및 동화 삽화 등 이미지 파일(Oracle Cloud Infrastructure, 춘천 리전)은 국내에서
+          처리·저장되므로 국외 이전에 해당하지 않습니다.
         </p>
         <p className="mt-3 text-sm text-gray-500">
           ※ 정보주체는 위 개인정보의 국외 이전을 거부할 수 있습니다. 다만 국외 이전되는 정보는 서비스
@@ -343,6 +357,11 @@ export default function PrivacyPage() {
               2026년 8월 15일: 개인정보 처리업무 위탁 현황(제6조) 및 국외 이전 현황(제7조)을 실제 처리
               환경에 맞게 정정 — 이미지 저장소(Oracle Cloud, 국내 춘천) 및 데이터베이스 호스팅(Supabase,
               국외 인도) 수탁자 정보 반영
+            </li>
+            <li>
+              2026년 10월 9일: 데이터베이스 호스팅(Supabase)의 국내(서울) 리전 이전, 서비스 API 서버(Amazon Web
+              Services, 서울) 추가, AI 동화 원고·캐릭터·삽화 생성 수탁자(OpenAI, 미국) 추가 및 Google(Gemini)
+              이용 범위(사진 특징 분석·음성 생성) 정정, 사진 AI 전송 별도 동의 반영
             </li>
           </ul>
         </div>
