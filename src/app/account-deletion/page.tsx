@@ -40,7 +40,7 @@ export default function AccountDeletionPage() {
           <ul className="space-y-1 text-sm">
             <li>수신 이메일: skhyena728@gmail.com</li>
             <li>제목: [KidStory] 계정 삭제 요청</li>
-            <li>본문 기재 사항: 가입에 사용하신 소셜 로그인 종류(카카오 또는 구글)와 이메일 주소</li>
+            <li>본문 기재 사항: 가입에 사용하신 소셜 로그인 종류(카카오, 구글 또는 Apple)와 이메일 주소</li>
           </ul>
         </div>
         <p className="mt-3">
