@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/og-kidstory-story.jpg",
         width: 1200,
         height: 630,
-        alt: "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화",
+        alt: "오늘 밤에는, 네 이야기를 읽어 줄게. 우리 아이가 주인공이 되는 KidStory 그림책",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/images/og-image.png"],
+    images: ["/images/og-kidstory-story.jpg"],
   },
   robots: {
     index: true,
