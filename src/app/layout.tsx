@@ -10,7 +10,7 @@ const GA_MEASUREMENT_ID = "G-PXF93TZ391";
 const SITE_URL = "https://kidstory.skhyena.com";
 const SITE_TITLE = "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화";
 const SITE_DESCRIPTION =
-  "아이의 사진 한 장이면 충분해요. AI가 우리 아이를 주인공으로 한 그림 동화를 만들어 드립니다. 감정을 담은 음성 읽어주기까지, 오늘 밤 특별한 동화를 선물하세요.";
+  "우리 아이를 닮은 캐릭터로 만드는 5–8페이지 맞춤 그림책. 무료 명작 동화, 프리미엄 음성 낭독, iPad·Android 태블릿 펼침 읽기까지. 시작 팩과 크레딧 충전, 월 구독으로 만나 보세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
