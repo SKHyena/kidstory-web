@@ -370,11 +370,13 @@ export default function HomePage() {
               </div>
               <p>
                 <ResponsiveCopy compact={<>iPad와 Android 태블릿에서도.<br />그림과 글을 펼쳐, 아이와 함께 읽어요.</>}>
-                  이제 iPad와 Android 태블릿에서도.
-                  <br />
-                  그림과 글을 나란히 펼치고,
-                  <br />
-                  아이와 같은 장면에 머물러 보세요.
+                  <span className="tablet-platform">이제 iPad와 Android 태블릿에서도.</span>
+                  <br className="tablet-copy-break" />
+                  <span className="tablet-reading-copy">
+                    그림과 글을 나란히 펼치고,
+                    <br />
+                    아이와 <em>같은 장면</em>에 머물러 보세요.
+                  </span>
                 </ResponsiveCopy>
               </p>
             </div>
