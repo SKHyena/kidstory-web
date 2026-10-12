@@ -190,7 +190,6 @@ function ScreenCarousel({
             ))}
           </div>
         </div>
-        <span className="gallery-stage-note">{device === "phone" ? "iPhone" : "iPad"} · 실제 앱 화면</span>
         {isInView && !hasSwiped && !isDragging && (
           <div className="gallery-swipe-hint" aria-hidden="true">
             <span className="gallery-swipe-trail" />
