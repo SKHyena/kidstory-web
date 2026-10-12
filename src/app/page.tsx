@@ -270,16 +270,20 @@ export default function HomePage() {
                   { x: 632, label: "시무룩" },
                 ].map((item) => (
                   <figure key={item.label}>
-                    <div className="expression-sheet-window">
-                      <Image
-                        src="/images/landing/jieun-sheet.webp"
-                        alt={`${item.label} 표정의 지은 캐릭터`}
+                    <svg
+                      className="expression-sheet-window"
+                      viewBox={`${item.x} 650 280 280`}
+                      width={280}
+                      height={280}
+                      role="img"
+                      aria-label={`${item.label} 표정의 지은 캐릭터`}
+                    >
+                      <image
+                        href="/images/landing/jieun-sheet.webp"
                         width={1536}
                         height={1024}
-                        sizes="768px"
-                        style={{ left: `${(-item.x / 280) * 100}%` }}
                       />
-                    </div>
+                    </svg>
                     <figcaption>{item.label}</figcaption>
                   </figure>
                 ))}

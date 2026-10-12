@@ -916,14 +916,6 @@ html {
 .expression-strip figure:nth-child(4) {
   transform: rotate(9deg);
 }
-.expression-strip img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  border-radius: 6px;
-  object-fit: cover;
-}
 .expression-strip figcaption {
   font-family: KidStoryGaegu, sans-serif;
   font-size: 17px;
@@ -932,20 +924,12 @@ html {
   color: #79658b;
 }
 .expression-sheet-window {
-  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 6px;
-}
-/* Show the existing app sheet's 280px expression regions without redrawing them. */
-.expression-sheet-window img {
-  position: absolute;
-  top: -232.142857%;
-  width: 548.571429%;
-  max-width: none;
-  height: auto;
-  aspect-ratio: auto;
-  border-radius: 0;
 }
 .scene-note {
   margin-top: 28px;
