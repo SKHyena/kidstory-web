@@ -96,7 +96,7 @@ html {
   margin-inline: auto;
 }
 .section {
-  padding-block: 112px;
+  padding-block: 128px;
 }
 .eyebrow {
   display: block;
@@ -1116,7 +1116,7 @@ html {
 }
 @media (min-width: 1025px) {
   .tablet-section {
-    padding: 100px 0 110px;
+    padding: 116px 0 126px;
     background:
       radial-gradient(ellipse at 76% 45%, #fffaf0b3, transparent 58%),
       linear-gradient(115deg, #f0eaf5, #e9e1f1);
@@ -2090,7 +2090,7 @@ button[aria-pressed="true"] > .choice-check {
   align-items: center;
   min-height: 435px;
   gap: 10px;
-  padding-block: 70px;
+  padding-block: 86px;
 }
 .download-brand {
   display: flex;
@@ -2916,7 +2916,7 @@ button[aria-pressed="true"] > .choice-check {
     text-wrap: pretty;
   }
   .landing :is(h2, h3) { text-wrap: balance; }
-  .section { padding-block: 76px; }
+  .section { padding-block: 88px; }
   .section-heading { margin-bottom: 36px; }
   .eyebrow { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 14px; }
   .hero h1 { font-size: clamp(40px, 5.3vw, 54px); }
@@ -2932,7 +2932,7 @@ button[aria-pressed="true"] > .choice-check {
   .process-steps p { font-size: 12px; line-height: 1.6; }
   .tablet-heading { display: block; text-align: center; }
   .tablet-heading p { max-width: none; margin-top: 18px; }
-  .tablet-section { padding-top: 64px; padding-bottom: 34px; }
+  .tablet-section { padding-top: 76px; padding-bottom: 46px; }
   .tablet-display { margin-top: 36px; width: 94%; }
   .tablet-benefits { gap: 24px; }
   .gallery-heading { align-items: center; gap: 24px; }
@@ -2989,7 +2989,7 @@ button[aria-pressed="true"] > .choice-check {
   .faq-list summary { min-height: 60px; font-size: 14px; gap: 18px; }
   .faq-list summary svg { flex-shrink: 0; }
   .faq-list details > p { font-size: 14px; line-height: 1.8; }
-  .download-inner { grid-template-columns: 1fr; padding-block: 60px 36px; gap: 24px; text-align: center; }
+  .download-inner { grid-template-columns: 1fr; padding-block: 72px 48px; gap: 24px; text-align: center; }
   .download-brand, .store-links { justify-content: center; }
   .download-brand { text-align: left; }
   .download-art { width: 90%; max-width: 680px; justify-self: center; }
@@ -3028,7 +3028,7 @@ button[aria-pressed="true"] > .choice-check {
   .landing :is(.hero-description, .section-heading > p, .feature-copy > p,
     .story-process > div > p, .tablet-heading > p, .gallery-copy > p,
     .classics-copy > p, .faq-layout > div > p, .download-inner > div > p) { font-size: 18px; }
-  .section { padding-block: 56px; }
+  .section { padding-block: 64px; }
   .site-container { width: calc(100% - 40px); }
   .landing h2 { font-size: clamp(27px, 7.4vw, 33px); letter-spacing: -1.3px; }
   .landing h3 { font-size: 25px; }
@@ -3064,7 +3064,7 @@ button[aria-pressed="true"] > .choice-check {
   .process-steps li > span { margin: 0 auto 10px; width: 32px; height: 32px; font-size: 13px; }
   .process-steps h4 { font-size: 12px; line-height: 1.6; }
   .process-steps p { display: none; }
-  .tablet-section { padding: 48px 0 26px; }
+  .tablet-section { padding: 56px 0 34px; }
   .tablet-heading p { margin-top: 14px; }
   .tablet-display { width: 100%; margin-top: 28px; }
   .tablet-annotation { width: 143px; font-size: 15px; padding: 17px 10px 14px; bottom: -18px; right: 0; }
@@ -3147,7 +3147,7 @@ button[aria-pressed="true"] > .choice-check {
   .faq-layout .text-link { font-size: 12px; }
   .faq-list summary { font-size: 13px; padding-block: 18px; }
   .faq-list details > p { font-size: 13px; }
-  .download-inner { padding-block: 46px 28px; gap: 24px; }
+  .download-inner { padding-block: 54px 36px; gap: 24px; }
   .download-brand { gap: 12px; margin-bottom: 20px; }
   .download-app-icon { width: 48px; height: 48px; border-radius: 14px; }
   .download-inner h2 { font-size: clamp(27px, 7.4vw, 33px); }
