@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BookOpen, Search, ArrowLeft, Clock, BookMarked, Volume2 } from "lucide-react";
+
+/** 더미 데이터 페이지라 당분간 검색 색인에서 제외한다. sitemap에도 넣지 않았다. */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function StoriesPage() {
   const stories = [

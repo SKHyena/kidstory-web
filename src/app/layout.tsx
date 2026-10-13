@@ -7,7 +7,7 @@ import "./globals.css";
 /** GA4 측정 ID. 공개 값이라 코드에 두어도 무방하다(HTML에 그대로 노출된다). */
 const GA_MEASUREMENT_ID = "G-PXF93TZ391";
 
-const SITE_URL = "https://kidstory.skhyena.com";
+import { SITE_URL } from "@/lib/site";
 const SITE_TITLE = "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화";
 const SITE_DESCRIPTION =
   "우리 아이를 닮은 캐릭터로 만드는 5–8페이지 맞춤 그림책. 무료 명작 동화, 프리미엄 음성 낭독, iPad·Android 태블릿 펼침 읽기까지. 시작 팩과 크레딧 충전, 월 구독으로 만나 보세요.";
