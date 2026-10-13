@@ -711,7 +711,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 KidStory. All rights reserved.</span>
+          <span>© 2026 에스케이에이치(SKH). All rights reserved.</span>
           <span>Made with a little imagination.</span>
         </div>
       </footer>
