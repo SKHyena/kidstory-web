@@ -10,7 +10,7 @@ const GA_MEASUREMENT_ID = "G-PXF93TZ391";
 import { SITE_URL } from "@/lib/site";
 const SITE_TITLE = "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화";
 const SITE_DESCRIPTION =
-  "우리 아이를 닮은 캐릭터로 만드는 5–8페이지 맞춤 그림책. 무료 명작 동화, 프리미엄 음성 낭독, iPad·Android 태블릿 펼침 읽기까지. 시작 팩과 크레딧 충전, 월 구독으로 만나 보세요.";
+  "우리 아이가 주인공이 되는 AI 맞춤 그림책. 사진으로 만든 캐릭터, 무료 명작 동화와 음성 낭독을 만나 보세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
