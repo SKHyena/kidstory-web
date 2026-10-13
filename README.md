@@ -39,9 +39,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 - `/`: 캐릭터·원고 확인·태블릿 읽기·앱 화면 갤러리·명작·요금·FAQ·다운로드.
 - `src/app/landing.css`: 랜딩 전용 반응형 스타일. 공통 브랜드 색상은 `src/app/globals.css`.
-- `src/components/landing`: 기기별 앱 화면 갤러리와 크레딧 계산기만 클라이언트 컴포넌트로 사용.
+- `src/components/landing`: 앱 화면 갤러리, 크레딧 계산기, 사진 비교, 스토어 버튼 등 상호작용 컴포넌트.
 - `src/lib/pricing.ts`: 단건 상품 표시값과 계산 단가. 실제 판매 가격/구매 가능 여부는 인앱 스토어를 따름.
 - `src/lib/app-links.ts`: App Store, Google Play, 고객 지원 링크.
+
+### GA4 앱 다운로드 버튼 이벤트
+
+기존 GA4 측정 ID `G-PXF93TZ391`에 `@next/third-parties/google`의 `sendGAEvent`로 전송합니다.
+개발 모드에서는 전송하지 않으며, 페이지 표시나 모달 닫기는 집계하지 않습니다.
+
+| 이벤트 | 발생 시점 | 파라미터 |
+| --- | --- | --- |
+| `app_store_click` | App Store 버튼 클릭 | `app_platform=ios`, `button_location=download_section`, `link_url=App Store URL` |
+| `android_coming_soon_click` | Android 버튼을 눌러 준비 중 모달 열기 | `app_platform=android`, `button_location=download_section` |
+
+두 이벤트는 설치 완료가 아닌 클릭/관심을 측정합니다. 실제 설치는 앱 측 분석으로 확인해야 합니다.
+GA4 실시간 보고서와 이벤트 보고서에서 이벤트 이름으로 구분할 수 있습니다.
+파라미터별 일반 보고서가 필요하면 `app_platform`, `button_location`을 이벤트 범위 맞춤 측정기준으로 등록합니다.
+Android 출시 후에는 준비 중 이벤트를 실제 스토어 이동 이벤트로 변경해야 합니다.
 
 ### 자료와 정책 근거
 

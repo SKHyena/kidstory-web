@@ -18,6 +18,7 @@ import { CreditCalculator } from "@/components/landing/credit-calculator";
 import { AppGallery } from "@/components/landing/app-gallery";
 import { CharacterComparison } from "@/components/landing/character-comparison";
 import { AndroidDownload } from "@/components/landing/android-download";
+import { AppStoreDownload } from "@/components/landing/app-store-download";
 import "./landing.css";
 
 // Keep the desktop copy intact; compact screens get a shorter reading rhythm.
@@ -29,12 +30,7 @@ function StoreLinks() {
   return (
     <div className="store-links">
       {APP_STORE_URL ? (
-        <a
-          className="store-link"
-          href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <AppStoreDownload>
           <svg
             viewBox="0 0 24 24"
             width="23"
@@ -47,7 +43,7 @@ function StoreLinks() {
           <span>
             <small>iPhone · iPad</small>App Store
           </span>
-        </a>
+        </AppStoreDownload>
       ) : (
         <span className="store-link store-pending">
           <span>
