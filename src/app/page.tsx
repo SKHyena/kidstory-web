@@ -142,13 +142,15 @@ export default function HomePage() {
       <main id="main">
         <section className="hero site-container">
           <div className="hero-copy">
-            <span className="hero-label">
-              <Image src="/images/landing/star-eight.webp" alt="" width={22} height={22} /> 아이의 상상이 한 권의 동화가 되는 곳
-            </span>
             <h1>
-              “엄마, 이거
-              <br />
-              <em>내 이야기</em>잖아!”
+              <span className="hero-label">
+                <Image src="/images/landing/star-eight.webp" alt="" width={22} height={22} /> 우리 아이가 주인공인 AI 맞춤 동화
+              </span>
+              <span className="hero-headline">
+                “엄마, 이거
+                <br />
+                <em>내 이야기</em>잖아!”
+              </span>
             </h1>
             <p className="hero-description">
               <ResponsiveCopy compact={<>우리 아이의 얼굴과 상상으로,<br />세상에 하나뿐인 그림책.</>}>
@@ -244,8 +246,8 @@ export default function HomePage() {
         </div>
         <section id="features" className="section site-container">
           <div className="section-heading">
-            <span className="eyebrow">MADE OF YOUR LITTLE ONE</span>
             <h2>
+              <span className="eyebrow heading-kicker">사진으로 만드는 우리 아이 그림책</span>
               이야기의 시작도,
               <br />
               주인공도 우리 아이.
@@ -365,8 +367,8 @@ export default function HomePage() {
           <div className="site-container">
             <div className="tablet-heading">
               <div>
-                <span className="eyebrow">A BIGGER WORLD, TOGETHER</span>
                 <h2>
+                  <span className="eyebrow heading-kicker">태블릿으로 함께 읽는 동화</span>
                   화면은 더 넓게.
                   <br />
                   우리 사이는 더 가깝게.
@@ -417,8 +419,8 @@ export default function HomePage() {
         <section id="stories" className="classics-section section">
           <div className="site-container classics-layout">
             <div className="classics-copy">
-              <span className="eyebrow">OLD TALES, NEW LITTLE READERS</span>
               <h2>
+                <span className="eyebrow heading-kicker">무료로 읽는 명작 동화</span>
                 우리의 첫 독서는
                 <br />
                 익숙한 명작부터.

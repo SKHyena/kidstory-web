@@ -238,8 +238,8 @@ export function AppGallery() {
     <div className={`app-gallery gallery-${device}`}>
       <div className="gallery-heading">
         <div className="gallery-copy">
-          <span className="eyebrow">A LITTLE LOOK INSIDE</span>
           <h2>
+            <span className="eyebrow heading-kicker">KidStory 동화 앱 둘러보기</span>
             작은 화면 안에,
             <br />
             커다란 이야기 세상.
