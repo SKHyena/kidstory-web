@@ -1,107 +1,99 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, FileText, ShieldCheck, UserRound } from "lucide-react";
+import { SUPPORT_MAILTO } from "@/lib/app-links";
+import "@/app/landing.css";
+import "./legal-page.css";
 
 interface LegalPageProps {
   title: string;
-  /** 예: "2026년 7월 13일". 시행일 개념이 없는 안내 페이지에서는 생략한다. */
   effectiveDate?: string;
-  /** 예: "2026년 7월 13일" */
   updatedDate?: string;
-  /** 현재 페이지 라우트 — 하단 크로스링크에서 활성 표시용 */
   current: "/privacy" | "/terms" | "/account-deletion";
   children: React.ReactNode;
 }
 
-/**
- * 이용약관·개인정보처리방침 등 법적 고지 페이지 공통 레이아웃.
- * 랜딩 페이지(src/app/page.tsx)와 동일한 헤더/푸터/타이포 톤을 공유한다.
- */
-export function LegalPage({
-  title,
-  effectiveDate,
-  updatedDate,
-  current,
-  children,
-}: LegalPageProps) {
+const documents = [
+  { href: "/terms", label: "이용약관", icon: FileText },
+  { href: "/privacy", label: "개인정보처리방침", icon: ShieldCheck },
+  { href: "/account-deletion", label: "계정·데이터 삭제", icon: UserRound },
+] as const;
+
+/** Shared brand shell; policy text and effective dates remain in each page. */
+export function LegalPage({ title, effectiveDate, updatedDate, current, children }: LegalPageProps) {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-        <nav className="container mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-900" asChild>
-              <Link href="/">
-                <ArrowLeft className="w-4 h-4 mr-1.5" />홈
-              </Link>
-            </Button>
-            <div className="h-5 w-px bg-gray-200" />
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/images/logo.png" alt="KidStory" width={32} height={32} className="w-8 h-8" />
-              <span className="text-lg font-bold text-gray-900">KidStory</span>
-            </Link>
-          </div>
+    <div className="landing legal-page">
+      <a className="skip-link" href="#legal-content">본문으로 건너뛰기</a>
+      <header className="site-header">
+        <nav className="site-container nav-inner" aria-label="주 메뉴">
+          <Link href="/" className="wordmark nav-brand" aria-label="KidStory 홈">
+            <span className="nav-icon-wrap">
+              <Image src="/images/landing/app-icon.webp" alt="" width={44} height={44} className="nav-app-icon" />
+            </span>
+            <span className="nav-brand-copy">
+              <span>KidStory</span>
+              <small>우리 아이가 주인공인 동화</small>
+            </span>
+          </Link>
+          <Link href="/" className="legal-home"><ArrowLeft size={16} /> 홈으로</Link>
+          <Link href="/#download" className="button nav-download">
+            <span>앱 다운로드</span>
+            <span className="nav-download-arrow"><ArrowRight size={15} aria-hidden="true" /></span>
+          </Link>
         </nav>
       </header>
 
-      {/* Content */}
-      <main className="pt-28 pb-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-3xl">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
-            {title}
-          </h1>
-          {effectiveDate ? (
-            <p className="text-sm text-gray-400 mb-12">
-              시행일: {effectiveDate}
-              {updatedDate ? ` | 최종 수정일: ${updatedDate}` : ""}
-            </p>
-          ) : (
-            <div className="mb-12" />
+      <main className="site-container legal-main">
+        <div className="legal-intro">
+          <span className="legal-kicker">KIDSTORY GUIDE</span>
+          <h1>{title}</h1>
+          <p>우리 가족의 이야기, 안심하고 시작할 수 있도록.</p>
+          {(effectiveDate || updatedDate) && (
+            <div className="legal-dates">
+              {effectiveDate && <span>시행일 <strong>{effectiveDate}</strong></span>}
+              {updatedDate && <span>최종 수정 <strong>{updatedDate}</strong></span>}
+            </div>
           )}
-
-          <div className="space-y-10 text-gray-600 leading-relaxed text-[15px]">{children}</div>
-
-          {/* 문서 간 크로스링크 */}
-          <div className="mt-16 pt-8 border-t border-gray-100 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-            <Link
-              href="/terms"
-              className={
-                current === "/terms"
-                  ? "font-semibold text-gray-900"
-                  : "text-gray-400 hover:text-gray-600 transition-colors"
-              }
-            >
-              이용약관
-            </Link>
-            <Link
-              href="/privacy"
-              className={
-                current === "/privacy"
-                  ? "font-semibold text-gray-900"
-                  : "text-gray-400 hover:text-gray-600 transition-colors"
-              }
-            >
-              개인정보처리방침
-            </Link>
-            <Link
-              href="/account-deletion"
-              className={
-                current === "/account-deletion"
-                  ? "font-semibold text-gray-900"
-                  : "text-gray-400 hover:text-gray-600 transition-colors"
-              }
-            >
-              계정 및 데이터 삭제
-            </Link>
-          </div>
+          <Image className="legal-intro-star" src="/images/landing/star-eight.webp" alt="" width={90} height={90} />
+        </div>
+        <div className="legal-layout">
+          <aside className="legal-sidebar">
+            <nav className="legal-document-nav" aria-label="이용 안내 문서">
+              {documents.map(({ href, label, icon: Icon }) => (
+                <Link key={href} href={href} aria-current={current === href ? "page" : undefined}>
+                  <Icon size={18} aria-hidden="true" />
+                  <span>{label}</span>
+                  <ArrowRight className="legal-nav-arrow" size={15} aria-hidden="true" />
+                </Link>
+              ))}
+            </nav>
+            <div className="legal-sidebar-note">
+              <p>더 궁금한 점이 있나요?</p>
+              <a href={SUPPORT_MAILTO}>편하게 문의해 주세요 <ArrowRight size={14} /></a>
+            </div>
+          </aside>
+          <article id="legal-content" className="legal-content" aria-label={title}>
+            {children}
+          </article>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-100 bg-white py-8">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <p className="text-sm text-gray-400">&copy; 2026 KidStory. All rights reserved.</p>
+      <footer className="site-footer legal-footer">
+        <div className="site-container">
+          <div className="footer-top">
+            <div>
+              <Link className="wordmark" href="/">KidStory</Link>
+              <p>아이의 오늘이, 오래 간직할 이야기가 되도록.</p>
+            </div>
+            <div className="footer-links">
+              {documents.map(({ href, label }) => <Link key={href} href={href} aria-current={current === href ? "page" : undefined}>{label}</Link>)}
+              <a href={SUPPORT_MAILTO}>문의하기</a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 KidStory. All rights reserved.</span>
+            <span>Made with a little imagination.</span>
+          </div>
         </div>
       </footer>
     </div>
