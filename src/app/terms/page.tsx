@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal-page";
 
-export const metadata = {
+export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "이용약관 - KidStory",
   description: "KidStory 서비스 이용약관",
 };

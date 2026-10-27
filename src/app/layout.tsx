@@ -7,10 +7,7 @@ import "./globals.css";
 /** GA4 측정 ID. 공개 값이라 코드에 두어도 무방하다(HTML에 그대로 노출된다). */
 const GA_MEASUREMENT_ID = "G-PXF93TZ391";
 
-import { SITE_URL } from "@/lib/site";
-const SITE_TITLE = "KidStory — 우리 아이가 주인공이 되는 AI 맞춤 동화";
-const SITE_DESCRIPTION =
-  "우리 아이가 주인공이 되는 AI 맞춤 그림책. 사진으로 만든 캐릭터, 무료 명작 동화와 음성 낭독을 만나 보세요.";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

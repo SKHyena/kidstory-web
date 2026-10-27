@@ -18,6 +18,8 @@ import { CreditCalculator } from "@/components/landing/credit-calculator";
 import { AppGallery } from "@/components/landing/app-gallery";
 import { CharacterComparison } from "@/components/landing/character-comparison";
 import { AndroidDownload } from "@/components/landing/android-download";
+import { FooterLegal } from "@/components/footer-legal";
+import { StructuredData } from "@/components/structured-data";
 import { AppStoreDownload } from "@/components/landing/app-store-download";
 import "./landing.css";
 
@@ -92,6 +94,7 @@ const faqs = [
 export default function HomePage() {
   return (
     <div className="landing">
+      <StructuredData faqs={faqs} />
       <a className="skip-link" href="#main">
         본문으로 건너뛰기
       </a>
@@ -690,7 +693,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 에스케이에이치(SKH) · 대표 김기손. All rights reserved.</span>
+          <FooterLegal />
           <span>Made with a little imagination.</span>
         </div>
       </footer>

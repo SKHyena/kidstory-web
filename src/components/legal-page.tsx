@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, FileText, ShieldCheck, UserRound } from "lucide-react";
 import { SUPPORT_MAILTO } from "@/lib/app-links";
+import { FooterLegal } from "@/components/footer-legal";
 import "@/app/landing.css";
 import "./legal-page.css";
 
@@ -91,7 +92,7 @@ export function LegalPage({ title, effectiveDate, updatedDate, current, children
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 에스케이에이치(SKH) · 대표 김기손. All rights reserved.</span>
+            <FooterLegal />
             <span>Made with a little imagination.</span>
           </div>
         </div>

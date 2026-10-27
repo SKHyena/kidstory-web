@@ -2216,6 +2216,9 @@ button[aria-pressed="true"] > .choice-check {
   display: flex;
   justify-content: space-between;
 }
+.footer-legal {
+  line-height: 1.7;
+}
 .mobile-break {
   display: none;
 }

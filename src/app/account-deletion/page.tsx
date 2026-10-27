@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal-page";
 
-export const metadata = {
+export const metadata: Metadata = {
+  alternates: { canonical: "/account-deletion" },
   title: "계정 및 데이터 삭제 안내 - KidStory",
   description:
     "KidStory 계정 삭제 절차와 삭제되는 데이터 항목, 이메일을 통한 삭제 요청 방법을 안내합니다.",

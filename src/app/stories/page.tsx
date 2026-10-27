@@ -6,6 +6,7 @@ import { BookOpen, Search, ArrowLeft, Clock, BookMarked, Volume2 } from "lucide-
 
 /** 더미 데이터 페이지라 당분간 검색 색인에서 제외한다. sitemap에도 넣지 않았다. */
 export const metadata: Metadata = {
+  alternates: { canonical: "/stories" },
   robots: { index: false, follow: false },
 };
 
